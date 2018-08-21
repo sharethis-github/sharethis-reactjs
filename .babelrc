@@ -1,4 +1,6 @@
 {
   "presets": ["env", "react"],
-  "plugins": ["jsx-control-statements"]
+  "plugins": [
+    "jsx-control-statements"
+  ]
 }

@@ -1,7 +1,8 @@
-st = window.__sharethis__;
+// load library
+import st from '../utils';
 
-function InlineShareButtons(config = {}) {
-  var $el, $els, i, id, len, ref, results;
+const loader = function(config = {}) {
+  let $el, $els, i, id, len, ref, results;
   if (!config.enabled) {
     return;
   }
@@ -31,7 +32,7 @@ function InlineShareButtons(config = {}) {
 };
 
 load = function($el, config) {
-  var {
+  let {
     fade_in, onLoad,
     alignment, font_size, language, padding, radius, size, spacing,
     id, labels, min_count, networks, show_total, use_native_counts,
@@ -175,42 +176,52 @@ load = function($el, config) {
     ##{id}.st-justified .st-btn {
       ${st.FLEX}
     }
-  `
+  `;
 
   network_css = ((function() {
-    var results;
+    let results;
     results = [];
-    for (var i = 0; i < networks.length; i++) {
+    for (let i = 0; i < networks.length; i++) {
       network = networks[i];
       results.push(`
         #${id} .st-btn[data-network='${network}'] {
         background-color: ${st.COLORS[network]};
-      }`)
+      }`);
     }
     return results;
   })()).join('\n');
+
+  // build final css
   css = common_css;
   if (!st.mobile) {
     css += hover_css;
   }
   css += network_css;
   st.css(css);
+
+  // generate button html
   html = '';
   if (!show_mobile_buttons) {
-    ref = ['sms'];
-    for (i = 0, len = ref.length; i < len; i++) {
-      network = ref[i];
-      index = networks.indexOf(network);
-      if (index > -1) {
-        networks.splice(index, 1);
-      }
+    if (networks.indexOf('sms') > -1) {
+      networks.splice(index, 1);
     }
   }
+
+  // generate html for total count
   if (show_total) {
-    html += "<div class='st-total st-hidden'>\n  <span class='st-label'></span>\n  <span class='st-shares'>\n    " + (st.capitalize(st.i18n['shares'][language])) + "\n  </span>\n</div>";
+    html += `
+      <div class='st-total st-hidden'>
+        <span class='st-label'></span>
+        <span class='st-shares'>
+          ${st.capitalize(st.i18n['shares'][language])}
+        </span>
+      </div>
+    `;
   }
-  for (index = j = 0, len1 = networks.length; j < len1; index = ++j) {
-    network = networks[index];
+
+  // generate html for networks
+  for (i = 0; i < networks.length; ++i) {
+    network = networks[i];
     class_names = ['st-btn'];
     if (index === 0) {
       class_names.push('st-first');
@@ -222,94 +233,52 @@ load = function($el, config) {
     if (labels !== 'cta') {
       label = '';
     }
-    label_span = "<span class='st-label'>" + label + "</span>";
-    html += "<div class='" + (class_names.join(' ')) + "' data-network='" + network + "'>\n  " + st.ICONS[network] + "\n  " + (labels === 'counts' || labels === 'cta' ? label_span : '') + "\n</div>";
+    label_span = `<span class='st-label'>${label}</span>`;
+    html += `
+      <div class='${class_names.join(' ')}' data-network='${network}'>
+        ${st.ICONS[network]}
+        ${['counts', 'cta'].includes(labels) ? label_span : ''}
+      </div>
+    `;
   }
+
+  // render buttons
   $el.innerHTML = html;
   $buttons = $el.querySelectorAll('.st-btn');
   $total = $el.querySelector('.st-total');
   $total_label = $el.querySelector('.st-total .st-label');
-  resize = function() {
-    var $button, actual, available, k, l, len2, m, results;
-    available = $el.offsetWidth;
-    actual = function() {
-      var $button, k, len2, width;
-      width = 0;
-      if (show_total) {
-        width += $total.offsetWidth;
-      }
-      for (k = 0, len2 = $buttons.length; k < len2; k++) {
-        $button = $buttons[k];
-        if ($button.style.display === 'none') {
-          continue;
-        }
-        if (alignment === 'justified') {
-          if (st.hasClass($button, 'st-remove-label')) {
-            width += 65;
-          } else {
-            width += 160;
-          }
-        } else {
-          width += $button.offsetWidth + spacing;
-        }
-      }
-      return width;
-    };
-    for (k = 0, len2 = $buttons.length; k < len2; k++) {
-      $button = $buttons[k];
-      $button.style.display = 'inline-block';
-      st.removeClass($button, 'st-remove-label');
-    }
-    for (index = l = $buttons.length - 1; l >= 0; index = l += -1) {
-      $button = $buttons[index];
-      if (actual() > available) {
-        st.addClass($button, 'st-remove-label');
-      }
-    }
-    results = [];
-    for (index = m = $buttons.length - 1; m >= 0; index = m += -1) {
-      $button = $buttons[index];
-      if ($button.getAttribute('data-network') === 'sharethis') {
-        continue;
-      }
-      if (actual() > available) {
-        results.push($button.style.display = 'none');
-      } else {
-        results.push(void 0);
-      }
-    }
-    return results;
-  };
-  st.addEventListener(window, 'resize', resize);
-  fn = function($button) {
-    return st.addEventListener($button, 'click', function() {
-      return st.share({
-        description: description || $el.getAttribute('data-description'),
-        email_subject: $el.getAttribute('data-email-subject'),
-        image: image || $el.getAttribute('data-image'),
-        message: $el != null ? $el.getAttribute('data-message') : void 0,
-        network: $button.getAttribute('data-network'),
-        share_url: $el.getAttribute('data-short-url'),
-        title: title || ($el != null ? $el.getAttribute('data-title') : void 0),
-        url: url || $el.getAttribute('data-url'),
-        username: username || $el.getAttribute('data-username')
-      });
-    });
-  };
-  for (k = 0, len2 = $buttons.length; k < len2; k++) {
+
+  // share listeners
+  fn = $button => st.addEventListener($button, 'click', () =>
+    st.share({
+      description: description || $el.getAttribute('data-description'),
+      email_subject: $el.getAttribute('data-email-subject'),
+      image: image || $el.getAttribute('data-image'),
+      message: $el !== null ? $el.getAttribute('data-message') : void 0,
+      network: $button.getAttribute('data-network'),
+      share_url: $el.getAttribute('data-short-url'),
+      title: title || ($el !== null ? $el.getAttribute('data-title') : void 0),
+      url: url || $el.getAttribute('data-url'),
+      username: username || $el.getAttribute('data-username')
+    })
+  );
+
+  for (k = 0; k < $buttons.length; k++) {
     $button = $buttons[k];
     fn($button);
   }
+
+  // load counts
   if (show_total || labels === 'counts') {
     st.loadCounts({
       facebook: indexOf.call(networks, 'facebook') >= 0,
       url: url || $el.getAttribute('data-url'),
       use_native_counts: use_native_counts
     }, function(counts) {
-      var l, len3, ref1, ref2, ref3, ref4, value;
+      let l, len3, ref1, ref2, ref3, ref4, value;
       if (show_total) {
-        if (((ref1 = counts['total']) != null ? ref1.value : void 0) > min_count) {
-          $total_label.innerHTML = ((ref2 = counts['total']) != null ? ref2.label : void 0) || '';
+        if (((ref1 = counts['total']) !== null ? ref1.value : void 0) > min_count) {
+          $total_label.innerHTML = ((ref2 = counts['total']) !== null ? ref2.label : void 0) || '';
           st.removeClass($total, 'st-hidden');
         } else {
           st.addClass($total, 'st-hidden');
@@ -321,7 +290,7 @@ load = function($el, config) {
           network = $button.getAttribute('data-network');
           ref3 = counts[network] || {}, label = ref3.label, value = ref3.value;
           if (label && value > min_count) {
-            if ((ref4 = $button.querySelector('.st-label')) != null) {
+            if ((ref4 = $button.querySelector('.st-label')) !== null) {
               ref4.innerHTML = label;
             }
             st.removeClass($button, 'st-hide-label');
@@ -330,21 +299,15 @@ load = function($el, config) {
           }
         }
       }
-      resize();
       if (fade_in) {
         st.addClass($el, 'st-animated');
-      }
-      if (fade_in) {
         st.removeClass($el, 'st-hidden');
       }
       return typeof onLoad === "function" ? onLoad() : void 0;
     });
   } else {
-    resize();
     if (fade_in) {
       st.addClass($el, 'st-animated');
-    }
-    if (fade_in) {
       st.removeClass($el, 'st-hidden');
     }
     if (typeof onLoad === "function") {
@@ -355,8 +318,7 @@ load = function($el, config) {
     $buttons: $buttons,
     $el: $el,
     id: id,
-    resize: resize
   };
 };
 
-module.exports = InlineShareButtons;
+module.exports = loader;
