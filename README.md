@@ -53,3 +53,12 @@ ShareThis react.js pluggins
 | size              |             |                 |                                              |
 | spacing           |             |                 |                                              |
 | use_native_counts |             |                 | boolean: `true, false`                       |
+
+
+### demo
+
+```
+ npm install
+ npm build
+ npm run demo
+```
