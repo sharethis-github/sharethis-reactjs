@@ -3,6 +3,4 @@ es/
 lib/
 node_modules/
 package-lock.json
-*.swp
-*.swo
-*.swm
+*.sw*
