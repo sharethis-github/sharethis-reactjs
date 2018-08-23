@@ -11,6 +11,10 @@ class ShareThis {
   constructor() {
     this.protocol = document.location.protocol === 'https:' ? 'https' : 'http';
     this.mobile = false;
+    this.font_family = `
+      font-family: \"Helvetica Neue\", Verdana, Helvetica, Arial, sans-serif;
+    `;
+    this.flex = "-moz-flex: 1;\n-ms-flex: 1;\n-webkit-flex: 1;\nflex: 1;";
   }
 
   capitalize(str) {
@@ -81,17 +85,11 @@ class ShareThis {
     return head.appendChild(s);
   }
 
-  BORDER_RADIUS(radius) {
-    return "-moz-border-radius: " + (this.px(radius)) + ";\n-webkit-border-radius: " + (this.px(radius)) + ";\nborder-radius: " + (this.px(radius)) + ";";
-  }
-  
   // BOX_SHADOW: function(value) {
     // return "-moz-box-shadow: " + value + ";\n-webkit-box-shadow: " + value + ";\nbox-shadow: " + value + ";";
   // },
 
-  // FLEX: "-moz-flex: 1;\n-ms-flex: 1;\n-webkit-flex: 1;\nflex: 1;",
-
-  TRANSITION(properties = ['all'], duration = '0.2s') {
+  transition(properties = ['all'], duration = '0.2s') {
     let i, len, property, value;
     value = [];
     for (i = 0, len = properties.length; i < len; i++) {
@@ -99,7 +97,12 @@ class ShareThis {
       value.push(`property ${duration} ease-in`);
     }
     value = value.join(', ');
-    return `-moz-transition:  ${value}; -ms-transition: ${value}; -o-transition: ${value} + -webkit-transition: ${value}; transition: ${value};`;
+    return `-moz-transition:  ${value};
+      -ms-transition: ${value};
+      -o-transition: ${value};
+      -webkit-transition: ${value};
+      transition: ${value};
+    `;
   }
 
   getWindowSize() {

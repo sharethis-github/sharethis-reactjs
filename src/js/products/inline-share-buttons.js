@@ -36,7 +36,7 @@ function loader(config = {}) {
   // append styling to dom
   let common_css = `
     #${id} {
-      ${st.FONT_FAMILY};
+      ${st.font_family};
       direction: ltr;
       display: block;
       opacity: 1;
@@ -44,14 +44,14 @@ function loader(config = {}) {
       z-index: 94034;
     }
     #${id}.st-animated {
-      ${st.TRANSITION('opacity')}
+      ${st.transition('opacity')}
     }
     #${id}.st-hidden {
       opacity: ${fade_in ? 0 : 1};
     }
     #${id} .st-btn {
-      ${st.TRANSITION(['opacity', 'top'])}
-      ${st.BORDER_RADIUS(radius)}
+      ${st.transition(['opacity', 'top'])}
+      border-radius: ${st.px(radius)};
       box-sizing: border-box;
       cursor: pointer;
       display: inline-block;
@@ -65,6 +65,8 @@ function loader(config = {}) {
       top: 0;
       vertical-align: top;
       white-space: nowrap;
+      -moz-border-radius: ${st.px(radius)};
+      -webkit-border-radius: ${st.px(radius)};
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
     }
@@ -86,7 +88,7 @@ function loader(config = {}) {
       vertical-align: top;
     }
     #${id} .st-btn > span {
-      ${st.TRANSITION()}
+      ${st.transition()}
       color: #fff;
       display: inline-block;
       font-weight: 500;
@@ -138,7 +140,7 @@ function loader(config = {}) {
       text-align: center;
     }
     #${id}.st-justified .st-btn {
-      ${st.FLEX}
+      ${st.flex}
     }
   `;
 
