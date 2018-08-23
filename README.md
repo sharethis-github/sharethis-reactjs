@@ -3,8 +3,12 @@
 ShareThis react.js pluggins
 
 
+## products
 
-### channels
+- inline-share-buttons
+- sticky-share-buttons
+
+## channels
 
   1. 'blogger'
   2. 'delicious'
@@ -33,7 +37,7 @@ ShareThis react.js pluggins
   25. 'whatsapp'
   26. 'xing'
 
-### configurations
+## configurations
 
 | configs           | description | required or not | value                                        |
 | ----------------- | ----------- | --------------- | -------------------------------------------- |
@@ -55,7 +59,7 @@ ShareThis react.js pluggins
 | use_native_counts |             |                 | boolean: `true, false`                       |
 
 
-### demo
+## demo
 
 ```
  npm install
