@@ -8,10 +8,17 @@ class App extends React.Component {
 
     return (
       <InlineShareButtons
+        alignment='center'
+        font_size={16}
+        labels={'cta'}
+        languagae={'en'}
         id={1}
-        url={url}
+        networks={['whatsapp', 'linkedin', 'youtube', 'facebook', 'twitter']}
+        padding={12}
+        radius={4}
         show_total={true}
-        networks={['facebook', 'twitter']}
+        size={40}
+        url={url}
       />
     );
   }

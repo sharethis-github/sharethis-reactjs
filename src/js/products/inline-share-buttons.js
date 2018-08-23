@@ -12,14 +12,32 @@ const i18n = require("../static/i18n.js");
 function loader(config = {}) {
   let st = new ShareThis();
 
-  let {alignment, fade_in, font_size, labels, language, id, url, padding, radius, size, show_total, spacing, networks,
-    title, image, description, username} = config;
+  let {
+    alignment,
+    description,
+    fade_in,
+    font_size,
+    id,
+    image,
+    labels,
+    language,
+    networks,
+    padding,
+    radius,
+    show_total,
+    size,
+    spacing,
+    title,
+    url
+  } = config;
 
-  language = language || 'en';
+  // default configs
   alignment = alignment || 'left';
   font_size = font_size || 12;
+  labels = labels || 'cta';
+  language = language || 'en';
   padding = padding || 10;
-  radius = radius || 0;
+  radius = radius || 4;
   size = size || 40;
   spacing = spacing || 8;
 
@@ -231,7 +249,7 @@ function loader(config = {}) {
         share_url: $el.getAttribute('data-short-url'),
         title: title || (typeof $el !== "undefined" && $el !== null ? $el.getAttribute('data-title') : void 0),
         url: url || $el.getAttribute('data-url'),
-        username: username || $el.getAttribute('data-username')
+        username: $el.getAttribute('data-username')
       });
     });
   }

@@ -18,13 +18,11 @@
     "url": "https://github.com/sharethis-github/react-sharethis/issues"
   },
   "homepage": "https://github.com/sharethis-github/react-sharethis#readme",
-  "dependencies": {
+  "devDependencies": {
     "copy-webpack-plugin": "4.5.1",
     "html-loader": "0.5.5",
     "mini-css-extract-plugin": "0.4.0",
-    "nib": "1.1.2"
-  },
-  "devDependencies": {
+    "nib": "1.1.2",
     "babel-core": "6.26.2",
     "babel-eslint": "8.2.1",
     "babel-loader": "7.1.4",

@@ -15,16 +15,25 @@ class InlineShareButtons extends React.Component {
   }
 
   renderButtons() {
-    const {id, url, show_total, networks} = this.props;
+    const {id, alignment, font_size, labels, language, padding, url, radius, size, show_total, networks} = this.props;
     const st_id = `st-inline-share-buttons-${id}`;
     this.refButton.current.id = st_id;
 
+    console.log(this.props);
+
     const config = {
+      alignment: alignment,
       fade_in: true,
+      font_size: font_size,
+      labels: labels,
+      language: language,
       id: st_id,
-      url: url,
+      networks: networks,
+      padding: padding,
+      radius: radius,
       show_total: show_total,
-      networks: networks
+      size: size,
+      url: url,
     };
     const buttons = loader(config);
   }
