@@ -1,6 +1,6 @@
 # react-sharethis
 
-ShareThis react.js pluggins
+ShareThis react.js plugins
 
 
 ## products
