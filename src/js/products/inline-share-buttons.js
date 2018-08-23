@@ -233,6 +233,8 @@ function loader(config = {}) {
 
   // render buttons
   $el.innerHTML = html;
+
+  // get elements
   let $buttons = $el.querySelectorAll('.st-btn');
   let $total = $el.querySelector('.st-total');
   let $total_label = $el.querySelector('.st-total .st-label');

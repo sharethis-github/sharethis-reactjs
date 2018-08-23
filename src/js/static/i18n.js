@@ -32,6 +32,17 @@ module.exports = {
     ru: 'hравится',
     zh: '赞'
   },
+  'sticky-width': {
+    en: 120,
+    es: 140,
+    fr: 130,
+    it: 140,
+    ja: 160,
+    ko: 120,
+    pt: 130,
+    ru: 160,
+    zh: 120
+  },
   'shares': {
     en: 'shares',
     es: 'veces compartido',

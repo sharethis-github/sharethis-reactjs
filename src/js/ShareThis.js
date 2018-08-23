@@ -106,9 +106,8 @@ class ShareThis {
   }
 
   getWindowSize() {
-    let body, documentElement, innerHeight, innerWidth;
-    body = document.body, documentElement = document.documentElement;
-    innerHeight = window.innerHeight, innerWidth = window.innerWidth;
+    const {body, documentElement} = document;
+    const {innerHeight, innerWidth} = window;
     return {
       height: innerHeight || documentElement.clientHeight || body.clientHeight,
       width: innerWidth || documentElement.clientWidth || body.clientWidth
@@ -130,8 +129,8 @@ class ShareThis {
       return document.location = url;
     }
 
-    wh = getWindowSize().height;
-    ww = getWindowSize().width;
+    wh = this.getWindowSize().height;
+    ww = this.getWindowSize().width;
     h = Math.min(600, .6 * wh);
     w = Math.min(800, .8 * ww);
     return window.open(url, '', [
@@ -451,7 +450,7 @@ class ShareThis {
         url: share_url
       })
     };
-    return open(redirects[network]);
+    return this.open(redirects[network]);
   }
 
 };
