@@ -1,14 +1,23 @@
+/**
+ * ShareThis utility function
+ *
+ */
 
-// utility function
-const i18n = require("./i18n.js");
+// constants
+const i18n = require("./static/i18n.js");
 
-module.exports = {
+class ShareThis {
 
-  capitalize: function(str) {
-    return  `${str.charAt(0).toUpperCase()}${str.substring(1).toLowerCase()}`;
-  },
+  constructor() {
+    this.protocol = document.location.protocol === 'https:' ? 'https' : 'http';
+    this.mobile = false;
+  }
 
-  getShareLabel: function(network, language = 'en') {
+  capitalize(str) {
+    return `${str.charAt(0).toUpperCase()}${str.substring(1).toLowerCase()}`;
+  };
+
+  getShareLabel(network, language = 'en') {
     let value = '';
     switch (network) {
       case 'email':
@@ -30,9 +39,9 @@ module.exports = {
         value = i18n['share'][language];
     }
     return this.capitalize(value);
-  },
+  };
 
-  send: function(resource, params, next) {
+  send(resource, params, next) {
     let img;
     if (params) {
       resource = `${resource}?${qs(params)}`;
@@ -45,9 +54,9 @@ module.exports = {
     return img.onerror = function() {
       return typeof next === "function" ? next(false) : void 0;
     };
-  },
+  };
   
-  emit: function(event, data) {
+  emit(event, data) {
     if (this.handlers && this.handlers[event]) {
       let handlers = this.handlers[event];
       let res = [];
@@ -57,13 +66,9 @@ module.exports = {
       }
       return res;
     }
-  },
+  };
 
-  COLORS: function(network) {
-
-  },
-
-  css: function(css) {
+  css(css) {
     let head, s;
     head = document.getElementsByTagName('head')[0];
     s = document.createElement('style');
@@ -74,25 +79,19 @@ module.exports = {
       s.appendChild(document.createTextNode(css));
     }
     return head.appendChild(s);
-  },
+  }
 
-  BORDER_BOX: `
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  `,
-
-  BORDER_RADIUS: function(radius) {
+  BORDER_RADIUS(radius) {
     return "-moz-border-radius: " + (this.px(radius)) + ";\n-webkit-border-radius: " + (this.px(radius)) + ";\nborder-radius: " + (this.px(radius)) + ";";
-  },
+  }
   
-  BOX_SHADOW: function(value) {
-    return "-moz-box-shadow: " + value + ";\n-webkit-box-shadow: " + value + ";\nbox-shadow: " + value + ";";
-  },
+  // BOX_SHADOW: function(value) {
+    // return "-moz-box-shadow: " + value + ";\n-webkit-box-shadow: " + value + ";\nbox-shadow: " + value + ";";
+  // },
 
-  FLEX: "-moz-flex: 1;\n-ms-flex: 1;\n-webkit-flex: 1;\nflex: 1;",
+  // FLEX: "-moz-flex: 1;\n-ms-flex: 1;\n-webkit-flex: 1;\nflex: 1;",
 
-  TRANSITION: function(properties = ['all'], duration = '0.2s') {
+  TRANSITION(properties = ['all'], duration = '0.2s') {
     let i, len, property, value;
     value = [];
     for (i = 0, len = properties.length; i < len; i++) {
@@ -101,9 +100,9 @@ module.exports = {
     }
     value = value.join(', ');
     return `-moz-transition:  ${value}; -ms-transition: ${value}; -o-transition: ${value} + -webkit-transition: ${value}; transition: ${value};`;
-  },
+  }
 
-  getWindowSize: function() {
+  getWindowSize() {
     let body, documentElement, innerHeight, innerWidth;
     body = document.body, documentElement = document.documentElement;
     innerHeight = window.innerHeight, innerWidth = window.innerWidth;
@@ -111,18 +110,18 @@ module.exports = {
       height: innerHeight || documentElement.clientHeight || body.clientHeight,
       width: innerWidth || documentElement.clientWidth || body.clientWidth
     };
-  },
+  }
 
-  px: function(value) {
+  px(value) {
     if (typeof value === 'string') {
       return value;
     }
     return (Math.floor(value)) + "px";
-  },
+  }
   
-  open: function(url) {
+  open(url) {
     let h, w, wh, ww;
-    if (mobile) {
+    if (this.mobile) {
       return window.open(url, '_blank');
     } else if (url.indexOf('mailto:') > -1) {
       return document.location = url;
@@ -140,9 +139,9 @@ module.exports = {
       `status=1`,
       `toolbar=0`
     ].join(','));
-  },
+  };
 
-  qs: function(params) {
+  qs(params) {
     let k, v;
     return ((function() {
       let results;
@@ -158,9 +157,9 @@ module.exports = {
       }
       return results;
     })()).join('&');
-  },
+  };
 
-  getImage: function() {
+  getImage() {
     let $el, i, j, len, len1, ref, ref1, type;
     ref = ['property', 'name'];
     for (i = 0, len = ref.length; i < len; i++) {
@@ -174,9 +173,9 @@ module.exports = {
       }
     }
     return '';
-  },
+  };
 
-  getTitle: function() {
+  getTitle() {
     let $el,  i, j, len, len1, ref, ref1, type;
     ref = ['property', 'name'];
     for (i = 0, len = ref.length; i < len; i++) {
@@ -190,9 +189,9 @@ module.exports = {
       }
     }
     return document.title;
-  },
+  };
 
-  getDescription: function() {
+  getDescription() {
     let $el, i, j, len, len1, ref, ref1, type;
     ref = ['property', 'name'];
     for (i = 0, len = ref.length; i < len; i++) {
@@ -206,27 +205,31 @@ module.exports = {
       }
     }
     return '';
-  },
+  };
 
-  // create an append new element
-  newElement: function(parent) {
-    let $el, id;
-    if (parent === void 0) {
-      parent = document.body;
-    }
-    $el = document.createElement('div');
-    id = `st-el-${uid()}`;
-    $el.setAttribute('id', id);
-    if (parent) {
-      parent.appendChild($el);
-    }
-    return {
-      $el: $el,
-      id: id
-    };
-  },
+  // // create an append new element
+  // newElement: function(parent) {
+    // let $el, id;
+    // if (parent === void 0) {
+      // parent = document.body;
+    // }
+    // $el = document.createElement('div');
+    // id = `st-el-${uid()}`;
+    // $el.setAttribute('id', id);
+    // if (parent) {
+      // parent.appendChild($el);
+    // }
+    // return {
+      // $el: $el,
+      // id: id
+    // };
+  // },
 
-  addClass: function($el, names) {
+  removeClass($el, name) {
+    return $el.className = $el.className.replace(name, '');
+  };
+
+  addClass($el, names) {
     let current, i, len, name;
     current = ($el.className || '').split(' ');
     if (typeof names === 'string') {
@@ -239,9 +242,21 @@ module.exports = {
       }
     }
     return $el.className = current.join(' ');
-  },
+  };
 
-  share: function(config) {
+  addEventListener($el, event, callback) {
+    if (!($el && event && callback)) {
+      return;
+    }
+    if ($el.addEventListener) {
+      return $el.addEventListener(event, callback, false);
+    } else if ($el.attachEvent) {
+      return $el.attachEvent("on" + event, callback);
+    }
+    return $el["on" + event] = callback;
+  };
+
+  share(config) {
     let {
       count_url, email_subject, share_url, url,
       description, image, message, network, title, username, product,
@@ -268,11 +283,11 @@ module.exports = {
   
     // st.incLocalStorageShares(network, count_url);
   
-    send((protocol + "://l.sharethis.com/log?") + qs({
+    this.send((this.protocol + "://l.sharethis.com/log?") + this.qs({
       destinations: network,
       event: 'share',
       product: product,
-      publisher: st.property,
+      publisher: '',
       source: 'sharethis.js',
       title: title,
       ts: Date.now(),
@@ -282,7 +297,7 @@ module.exports = {
       consentDomain: ''
     }));
   
-    emit('share', {
+    this.emit('share', {
       count_url: count_url,
       description: description,
       image: image,
@@ -300,7 +315,7 @@ module.exports = {
         // });
       // }
 
-      let wechat = "https://chart.apis.google.com/chart?" + qs({
+      let wechat = "https://chart.apis.google.com/chart?" + this.qs({
         cht: "qr",
         chs: "154x154",
         chld: "Q|0",
@@ -329,29 +344,29 @@ module.exports = {
     let is_ios = /iPad|iPhone|iPod/.test(navigator.userAgent);
   
     let redirects = {
-      blogger: "https://www.blogger.com/blog-this.g?" + qs({
+      blogger: "https://www.blogger.com/blog-this.g?" + this.qs({
         n: title,
         t: description,
         u: share_url
       }),
-      delicious: "https://del.icio.us/save?" + qs({
+      delicious: "https://del.icio.us/save?" + this.qs({
         provider: 'sharethis',
         title: title,
         url: share_url,
         v: 5
       }),
-      digg: "https://digg.com/submit?" + qs({
+      digg: "https://digg.com/submit?" + this.qs({
         url: share_url
       }),
-      email: "mailto:?to=&" + qs({
+      email: "mailto:?to=&" + this.qs({
         subject: email_subject || "I'd like to share a link with you",
         body: message || ("" + url)
       }),
-      facebook: "https://www.facebook.com/sharer.php?" + qs({
+      facebook: "https://www.facebook.com/sharer.php?" + this.qs({
         t: title,
         u: share_url
       }),
-      flipboard: "https://share.flipboard.com/bookmarklet/popout?" + qs({
+      flipboard: "https://share.flipboard.com/bookmarklet/popout?" + this.qs({
         ext: 'sharethis',
         title: title,
         url: share_url,
@@ -360,74 +375,74 @@ module.exports = {
         utm_source: 'sharethis',
         v: 2
       }),
-      googleplus: "https://plus.google.com/share?" + qs({
+      googleplus: "https://plus.google.com/share?" + this.qs({
         url: share_url
       }),
-      linkedin: "https://www.linkedin.com/shareArticle?" + qs({
+      linkedin: "https://www.linkedin.com/shareArticle?" + this.qs({
         title: title,
         url: share_url
       }),
-      livejournal: "https://www.livejournal.com/update.bml?" + qs({
+      livejournal: "https://www.livejournal.com/update.bml?" + this.qs({
         event: share_url,
         subject: title
       }),
-      mailru: "https://connect.mail.ru/share?" + qs({
+      mailru: "https://connect.mail.ru/share?" + this.qs({
         share_url: share_url
       }),
-      meneame: "https://meneame.net/submit.php?" + qs({
+      meneame: "https://meneame.net/submit.php?" + this.qs({
         url: share_url
       }),
       messenger: {
-        "true": "fb-messenger://share/?" + qs({
+        "true": "fb-messenger://share/?" + this.qs({
           link: share_url,
           app_id: 521270401588372
         }),
-        "false": "https://www.facebook.com/dialog/send?" + qs({
+        "false": "https://www.facebook.com/dialog/send?" + this.qs({
           link: share_url,
           app_id: 521270401588372,
           redirect_uri: "https://www.sharethis.com"
         })
-      }[mobile],
-      odnoklassniki: "https://www.odnoklassniki.ru/dk?" + qs({
+      }[this.mobile],
+      odnoklassniki: "https://www.odnoklassniki.ru/dk?" + this.qs({
         'st._surl': share_url,
         'st.cmd': 'addShare',
         'st.s': 1
       }),
-      pinterest: "https://pinterest.com/pin/create/button/?" + qs({
+      pinterest: "https://pinterest.com/pin/create/button/?" + this.qs({
         description: title,
         media: image,
         url: share_url
       }),
-      reddit: "https://reddit.com/submit?" + qs({
+      reddit: "https://reddit.com/submit?" + this.qs({
         title: title,
         url: share_url
       }),
       sms: "sms:" + (is_ios ? '&' : '?') + "body=" + (encodeURIComponent(share_url)),
-      stumbleupon: "https://www.stumbleupon.com/submit?" + qs({
+      stumbleupon: "https://www.stumbleupon.com/submit?" + this.qs({
         title: title,
         url: share_url
       }),
-      tumblr: "https://www.tumblr.com/share?" + qs({
+      tumblr: "https://www.tumblr.com/share?" + this.qs({
         t: title,
         u: share_url,
         v: 3
       }),
-      twitter: "https://twitter.com/intent/tweet?" + qs({
+      twitter: "https://twitter.com/intent/tweet?" + this.qs({
         text: title || description,
         url: share_url,
         via: username
       }),
-      vk: "https://vk.com/share.php?" + qs({
+      vk: "https://vk.com/share.php?" + this.qs({
         url: share_url
       }),
-      weibo: "http://v.t.sina.com.cn/share/share.php?" + qs({
+      weibo: "http://v.t.sina.com.cn/share/share.php?" + this.qs({
         title: title,
         url: share_url
       }),
-      whatsapp: (!mobile ? "https://web.whatsapp.com/send?" : "whatsapp://send?") + qs({
+      whatsapp: (!this.mobile ? "https://web.whatsapp.com/send?" : "whatsapp://send?") + this.qs({
         text: share_url
       }),
-      xing: "https://www.xing.com/app/user?" + qs({
+      xing: "https://www.xing.com/app/user?" + this.qs({
         op: 'share',
         title: title,
         url: share_url
@@ -435,5 +450,7 @@ module.exports = {
     };
     return open(redirects[network]);
   }
+
 };
 
+module.exports = ShareThis;
