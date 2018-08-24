@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sharethis-github/react-sharethis.git"
+    "url": "git+https://github.com/sharethis-github/sharethis-reactjs.git"
   },
   "author": "hao@sharethis.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sharethis-github/react-sharethis/issues"
+    "url": "https://github.com/sharethis-github/sharethis-reactjs/issues"
   },
-  "homepage": "https://github.com/sharethis-github/react-sharethis#readme",
+  "homepage": "https://github.com/sharethis-github/sharethis-reactjs#readme",
   "devDependencies": {
     "copy-webpack-plugin": "4.5.1",
     "html-loader": "0.5.5",

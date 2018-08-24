@@ -59,7 +59,7 @@ ShareThis react plugins
 | use_native_counts |             |                 | boolean: `true, false`                       |
 
 
-## usage
+## Usage
 
 1. import dependency
     ```
