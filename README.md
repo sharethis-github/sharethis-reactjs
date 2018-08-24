@@ -1,6 +1,6 @@
-# react-sharethis
+# sharethis-reactjs
 
-ShareThis react.js plugins
+ShareThis react plugins
 
 
 ## Products
@@ -61,32 +61,37 @@ ShareThis react.js plugins
 
 ## usage
 
-1. Initialize component properties
-```
-const inlineShareButtonsConfig = {
-  alignment: 'center',
-  font_size: 16,
-  labels: 'cta',
-  language: 'en',
-  id: 1,
-  networks: ['whatsapp', 'linkedin', 'youtube', 'facebook', 'twitter'],
-  padding: 12,
-  radius: 4,
-  show_total: true,
-  size: 40,
-  url: url
-};
-```
+1. import dependency
+    ```
+    import InlineShareButtons from 'sharethis-reactjs';
+    ```
 
-2. Render button component
-```
-<div>
-  <InlineShareButtons
-    config={inlineShareButtonsConfig}
-  />
-</div>
-    
-```
+2. Initialize component properties
+    ```
+    const inlineShareButtonsConfig = {
+      alignment: 'center',
+      font_size: 16,
+      labels: 'cta',
+      language: 'en',
+      id: 1,
+      networks: ['whatsapp', 'linkedin', 'youtube', 'facebook', 'twitter'],
+      padding: 12,
+      radius: 4,
+      show_total: true,
+      size: 40,
+      url: 'www.sharethis.com'
+    };
+    ```
+
+3. Render button component
+    ```
+    <div>
+      <InlineShareButtons
+        config={inlineShareButtonsConfig}
+      />
+    </div>
+        
+    ```
 
 ## Demo
 
