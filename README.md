@@ -3,12 +3,12 @@
 ShareThis react.js plugins
 
 
-## products
+## Products
 
 - inline-share-buttons
 - sticky-share-buttons
 
-## channels
+## Channels
 
   1. 'blogger'
   2. 'delicious'
@@ -37,7 +37,7 @@ ShareThis react.js plugins
   25. 'whatsapp'
   26. 'xing'
 
-## configurations
+## Configurations
 
 | configs           | description | required or not | value                                        |
 | ----------------- | ----------- | --------------- | -------------------------------------------- |
@@ -59,7 +59,36 @@ ShareThis react.js plugins
 | use_native_counts |             |                 | boolean: `true, false`                       |
 
 
-## demo
+## usage
+
+1. Initialize component properties
+```
+const inlineShareButtonsConfig = {
+  alignment: 'center',
+  font_size: 16,
+  labels: 'cta',
+  language: 'en',
+  id: 1,
+  networks: ['whatsapp', 'linkedin', 'youtube', 'facebook', 'twitter'],
+  padding: 12,
+  radius: 4,
+  show_total: true,
+  size: 40,
+  url: url
+};
+```
+
+2. Render button component
+```
+<div>
+  <InlineShareButtons
+    config={inlineShareButtonsConfig}
+  />
+</div>
+    
+```
+
+## Demo
 
 ```
  npm install
