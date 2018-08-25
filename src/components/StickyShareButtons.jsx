@@ -15,7 +15,6 @@ class StickyShareButtons extends React.Component {
 
   renderButtons() {
     let {config} = this.props;
-    console.log(config);
     const st_id = `st-sticky-share-buttons-${config.id}`;
     this.refButton.current.id = st_id;
     config.id = st_id;

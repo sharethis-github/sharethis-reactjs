@@ -90,10 +90,6 @@ class ShareThis {
     return head.appendChild(s);
   }
 
-  // BOX_SHADOW: function(value) {
-    // return "-moz-box-shadow: " + value + ";\n-webkit-box-shadow: " + value + ";\nbox-shadow: " + value + ";";
-  // },
-
   transition(properties = ['all'], duration = '0.2s') {
     let i, len, property, value;
     value = [];
@@ -227,24 +223,6 @@ class ShareThis {
     }
   };
 
-  // // create an append new element
-  // newElement: function(parent) {
-    // let $el, id;
-    // if (parent === void 0) {
-      // parent = document.body;
-    // }
-    // $el = document.createElement('div');
-    // id = `st-el-${uid()}`;
-    // $el.setAttribute('id', id);
-    // if (parent) {
-      // parent.appendChild($el);
-    // }
-    // return {
-      // $el: $el,
-      // id: id
-    // };
-  // },
-
   removeClass($el, name) {
     return $el.className = $el.className.replace(name, '');
   };
@@ -288,18 +266,6 @@ class ShareThis {
     description = (typeof description === "undefined") ? getDescription() : description;
     image = (typeof image === "undefined") ? getImage() : image;
     title = (typeof title === "undefined") ? getTitle() : title;
-  
-    // if (network === 'sharethis') {
-      // return load('share-all', {
-        // count_url: count_url,
-        // description: description,
-        // image: image,
-        // share_url: share_url,
-        // title: title,
-        // url: url,
-        // username: username
-      // });
-    // }
   
     // st.incLocalStorageShares(network, count_url);
   
