@@ -33,7 +33,7 @@ class App extends React.Component {
       radius: 4,
       show_mobile: true,
       show_toggle: true,
-      size: 40,
+      size: 48,
       top: 160,
       url: url,
       use_native_counts: true

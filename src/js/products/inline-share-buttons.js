@@ -47,7 +47,7 @@ function loader(config = {}) {
   st.addClass($el, [
     `st-${alignment}`,
     language !== 'en' ? `st-lang-${language}` : void 0,
-    labels in ['counts', 'cta'] ? `st-has-labels` : void 0,
+    ['counts', 'cta'].indexOf(labels) >= 0 ? `st-has-labels` : void 0,
     fade_in ? `st-hidden` : void 0,
   ]);
 

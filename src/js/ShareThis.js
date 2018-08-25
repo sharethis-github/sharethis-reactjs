@@ -15,6 +15,11 @@ class ShareThis {
       font-family: \"Helvetica Neue\", Verdana, Helvetica, Arial, sans-serif;
     `;
     this.flex = "-moz-flex: 1;\n-ms-flex: 1;\n-webkit-flex: 1;\nflex: 1;";
+    this.border_box = `
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    `;
   }
 
   capitalize(str) {
@@ -94,7 +99,7 @@ class ShareThis {
     value = [];
     for (i = 0, len = properties.length; i < len; i++) {
       property = properties[i];
-      value.push(`property ${duration} ease-in`);
+      value.push(`${property} ${duration} ease-in`);
     }
     value = value.join(', ');
     return `-moz-transition:  ${value};
@@ -207,6 +212,19 @@ class ShareThis {
       }
     }
     return '';
+  };
+
+  // check if an element has a class
+  hasClass($el, name) {
+    return new RegExp(name).test($el.className);
+  }
+  // toggle class name
+  toggleClass($el, name) {
+    if (this.hasClass($el, name)) {
+      this.removeClass($el, name);
+    } else {
+      this.addClass($el, name);
+    }
   };
 
   // // create an append new element

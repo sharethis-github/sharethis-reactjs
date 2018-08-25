@@ -23,6 +23,7 @@ function loader(config = {}) {
 
   // default configs
   alignment = alignment || 'left';
+  font_size = font_size || 16;
   labels = labels || 'counts';
   language = language || 'en';
   min_count = min_count || 0;
@@ -55,7 +56,7 @@ function loader(config = {}) {
     'st-sticky-share-buttons',
     `st-${alignment}`,
     show_toggle ? 'st-toggleable' : void 0,
-    labels in ['counts', 'cta'] ? 'st-has-labels' : void 0,
+    ['counts', 'cta'].indexOf(labels) >= 0 ? 'st-has-labels' : void 0,
     show_total ? 'st-show-total' : void 0,
     slide_in ? 'st-hidden' : void 0,
     language !== 'en' ? `st-lang-${language}` : void 0,
@@ -87,7 +88,7 @@ function loader(config = {}) {
       float: ${alignment};
     }
     #${id} .st-btn {
-      ${st.BORDER_BOX}
+      ${st.border_box}
       ${st.transition()}
       cursor: pointer;
       display: inline-block;
@@ -104,6 +105,7 @@ function loader(config = {}) {
       vertical-align: top;
       white-space: nowrap;
       width: ${st.px(size)};
+
     }
     #${id} .st-btn.st-first {
       border-top-${alignment_opposite}-radius: ${st.px(radius)};
