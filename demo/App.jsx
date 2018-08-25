@@ -28,7 +28,7 @@ class App extends React.Component {
       labels: 'cta',
       langauge: 'en',
       min_count: 10,
-      networks: ['whatsapp', 'linkedin', 'youtube', 'facebook', 'twitter'],
+      networks: ['linkedin', 'facebook', 'twitter', 'pinterest', 'email'],
       padding: 12,
       radius: 4,
       show_mobile: true,
