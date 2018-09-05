@@ -310,8 +310,8 @@ class ShareThis {
       description, image, message, network, title, username, product,
     } = config;
 
-    count_url = count_url || url || href;
-    share_url = share_url || url || href;
+    count_url = count_url || url || this.href;
+    share_url = share_url || url || this.href;
     url = !!url ? url : count_url;
     description = !!description ? description: this.getDescription();
     image = !!image ? image : this.getImage();
