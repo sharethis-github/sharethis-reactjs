@@ -67,11 +67,7 @@ configuration = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    }),
-    new CopyWebpackPlugin([{
-      from: './src/static',
-      to: './static'
-    }])
+    })
   ],
   devServer: { 
     open: false,
