@@ -317,18 +317,16 @@ class ShareThis {
     image = !!image ? image : this.getImage();
     title = !!title ? title : this.getTitle();
   
-    this.send((this.protocol + "://l.sharethis.com/log?") + this.qs({
+    this.send(`${this.protocol}://l.sharethis.com/log?` + this.qs({
       destinations: network,
       event: 'share',
       product: product,
-      publisher: '',
-      source: 'sharethis.js',
+      publisher: 'anonymous',
+      source: 'reactjs',
       title: title,
       ts: Date.now(),
       url: count_url,
-      sop: true,
-      consentData: '',
-      consentDomain: ''
+      sop: false,
     }));
   
     this.emit('share', {
