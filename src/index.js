@@ -1,4 +1,3 @@
 // export products
-export InlineShareButtons from './components/InlineShareButtons';
-export InlineFollowButtons from './components/InlineFollowButtons';
-export StickyShareButtons from './components/StickyShareButtons';
+export {default as InlineShareButtons} from './components/InlineShareButtons';
+export {default as StickyShareButtons} from './components/StickyShareButtons';

@@ -1,6 +1,5 @@
 import React from "react";
-import InlineShareButtons from '../src/components/InlineShareButtons';
-import StickyShareButtons from '../src/components/StickyShareButtons';
+import {InlineShareButtons, StickyShareButtons} from 'sharethis-reactjs';
 
 class App extends React.Component {
 
