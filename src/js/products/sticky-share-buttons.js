@@ -10,15 +10,34 @@ const COLORS = require("../static/COLORS.js");
 const i18n = require("../static/i18n.js");
 
 function loader(config = {}) {
-  let st = new ShareThis();
+
 
   let {
-    onLoad,
-    alignment, container, font_size, hide_desktop, padding, radius,
-    size, spacing, id, labels, language, min_count, networks,
-    show_toggle, show_total, mobile_breakpoint, show_mobile,
-    slide_in, top, use_native_counts, show_mobile_buttons,
-    url, title, image, description, username
+    alignment,
+    container,
+    description,
+    font_size,
+    hide_desktop,
+    id,
+    image,
+    labels,
+    language,
+    min_count,
+    mobile_breakpoint,
+    networks,
+    padding,
+    radius,
+    show_mobile,
+    show_toggle,
+    show_total,
+    size,
+    slide_in,
+    spacing,
+    st_id,
+    title,
+    top,
+    url,
+    username
   } = config;
 
   // default configs
@@ -28,24 +47,21 @@ function loader(config = {}) {
   language = language || 'en';
   min_count = min_count || 0;
   mobile_breakpoint = mobile_breakpoint ||  0;
-  networks = networks || ['facebook', 'twitter', 'pinterest', 'email', 'sharethis', 'sms'];
   padding = padding || 12;
   radius = radius || 0;
   size = size || 48;
   top = top || 100;
-  show_mobile_buttons = show_mobile_buttons || st.mobile;
 
   if (slide_in === null) {
     slide_in = true;
-  }
-  if (use_native_counts === null) {
-    use_native_counts = true;
   }
   if (show_toggle === null) {
     show_toggle = true;
   }
   const alignment_opposite = alignment === 'left' ? 'right' : 'left';
-  const $el = document.getElementById(id);
+
+  let st = new ShareThis(id);
+  const $el = document.getElementById(st_id);
 
   // adjust position for scrollbar on windows devices
   let scrollbar_width = alignment === 'right' ? st.getScrollbarWidth() : 0;
@@ -63,7 +79,7 @@ function loader(config = {}) {
   ]);
 
   let common_css = `
-    #${id} {
+    #${st_id} {
       ${st.font_family};
       ${st.transition()};
       backface-visibility: hidden;
@@ -74,20 +90,20 @@ function loader(config = {}) {
       top: ${st.px(top)};
       z-index: 94034;
     }
-    #${id}.st-${alignment} {
+    #${st_id}.st-${alignment} {
       ${alignment}: ${st.px(scrollbar_width)};
     }
-    #${id}.st-hidden.st-${alignment} {
+    #${st_id}.st-hidden.st-${alignment} {
       ${alignment}: -${st.px(size)};
     }
-    #${id}.st-hidden {
+    #${st_id}.st-hidden {
       width: ${st.px(2 * size)};
     }
-    #${id} > div {
+    #${st_id} > div {
       clear: ${alignment};
       float: ${alignment};
     }
-    #${id} .st-btn {
+    #${st_id} .st-btn {
       ${st.border_box}
       ${st.transition()}
       cursor: pointer;
@@ -107,27 +123,27 @@ function loader(config = {}) {
       width: ${st.px(size)};
 
     }
-    #${id} .st-btn.st-first {
+    #${st_id} .st-btn.st-first {
       border-top-${alignment_opposite}-radius: ${st.px(radius)};
     }
-    #${id} .st-btn.st-last {
+    #${st_id} .st-btn.st-last {
       border-bottom-${alignment_opposite}-radius: ${st.px(radius)};
     }
-    #${id} .st-btn > svg {
+    #${st_id} .st-btn > svg {
       ${st.transition()}
       height: ${st.px(size / 2)};
       margin-left: 0;
       vertical-align: top;
       width: ${st.px(size / 2)};
     }
-    #${id} .st-btn > img {
+    #${st_id} .st-btn > img {
       ${st.transition()}
       height: ${st.px(size / 2)};
       margin-left: 0;
       vertical-align: top;
       width: ${st.px(size / 2)};
     }
-    #${id} .st-btn > span {
+    #${st_id} .st-btn > span {
       ${st.transition()}
       color: #fff;
       display: inline-block;
@@ -140,10 +156,10 @@ function loader(config = {}) {
       vertical-align: top;
       filter: alpha(opacity=0);
     }
-    #${id} .st-btn.st-hide-label > span {
+    #${st_id} .st-btn.st-hide-label > span {
       display: none !important;
     }
-    #${id} .st-total {
+    #${st_id} .st-total {
       ${st.transition()}
       background: #fff;
       color: #555;
@@ -158,20 +174,20 @@ function loader(config = {}) {
       text-align: center;
       width: ${st.px(size)};
     }
-    #${id} .st-total.st-hidden {
+    #${st_id} .st-total.st-hidden {
       display: none;
     }
-    #${id} .st-total > span {
+    #${st_id} .st-total > span {
       display: block;
       font-size: ${st.px(.38 * size)};
       line-height: ${st.px(.45 * size)};
       padding: 0;
     }
-    #${id} .st-total > span.st-shares {
+    #${st_id} .st-total > span.st-shares {
       font-size: ${st.px(.23 * size)};
       line-height: ${st.px(.23 * size)};
     }
-    #${id} .st-toggle {
+    #${st_id} .st-toggle {
       ${alignment}: -${st.px(size + scrollbar_width)};
       ${st.transition()}
       background: #ccc;
@@ -184,73 +200,73 @@ function loader(config = {}) {
       text-align: center;
       width: ${st.px(size)};
     }
-    #${id}.st-hidden .st-toggle {
+    #${st_id}.st-hidden .st-toggle {
       border-top-${alignment_opposite}-radius: ${st.px(radius)};
     }
-    #${id}.st-${alignment} .st-toggle .st-${alignment} {
+    #${st_id}.st-${alignment} .st-toggle .st-${alignment} {
       display: inline-block;
     }
-    #${id}.st-${alignment}.st-hidden .st-toggle .st-${alignment} {
+    #${st_id}.st-${alignment}.st-hidden .st-toggle .st-${alignment} {
       display: none;
     }
-    #${id}.st-${alignment} .st-toggle .st-${alignment_opposite} {
+    #${st_id}.st-${alignment} .st-toggle .st-${alignment_opposite} {
       display: none;
     }
-    #${id}.st-${alignment}.st-hidden .st-toggle .st-${alignment_opposite} {
+    #${st_id}.st-${alignment}.st-hidden .st-toggle .st-${alignment_opposite} {
       display: inline-block;
     }
   `;
 
   let hover_css = `
-    #${id}:hover .st-toggle {
+    #${st_id}:hover .st-toggle {
       ${alignment}: 0;
     }
-    #${id}.st-hidden:hover .st-toggle {
+    #${st_id}.st-hidden:hover .st-toggle {
       ${alignment}: ${st.px(size)};
     }
-    #${id}.st-toggleable:hover .st-btn.st-last {
+    #${st_id}.st-toggleable:hover .st-btn.st-last {
       border-bottom-${alignment_opposite}-radius: 0;
     }
-    #${id}.st-toggleable:hover .st-btn.st-last:hover {
+    #${st_id}.st-toggleable:hover .st-btn.st-last:hover {
       border-bottom-${alignment_opposite}-radius: ${st.px(radius)};
     }
-    #${id} .st-btn:hover {
+    #${st_id} .st-btn:hover {
       border-bottom-${alignment_opposite}-radius: ${st.px(radius)};
       border-top-${alignment_opposite}-radius: ${st.px(radius)};
     }
-    #${id}.st-has-labels .st-btn:hover {
+    #${st_id}.st-has-labels .st-btn:hover {
       width: ${st.px(i18n['sticky-width'][language])};
     }
-    #${id}:not(.st-has-labels) .st-btn:hover {
+    #${st_id}:not(.st-has-labels) .st-btn:hover {
       width: ${st.px(1.3 * size)};
     }
-    #${id} .st-btn.st-hide-label:hover {
+    #${st_id} .st-btn.st-hide-label:hover {
       width: ${st.px(1.3 * size)};
     }
-    #${id} .st-btn:hover > svg {
+    #${st_id} .st-btn:hover > svg {
       margin-left: 5px;
     }
-    #${id} .st-btn:hover > img {
+    #${st_id} .st-btn:hover > img {
       margin-left: 5px;
     }
-    #${id} .st-btn:hover > span {
+    #${st_id} .st-btn:hover > span {
       opacity: 1;
       display: inline-block;
       left: 0;
       filter: alpha(opacity=100);
     }
     @media (max-width: ${st.px(mobile_breakpoint)}) {
-      #${id} .st-btn:hover > svg {
+      #${st_id} .st-btn:hover > svg {
         margin-left: 0;
       }
-      #${id} .st-btn:hover > span {
+      #${st_id} .st-btn:hover > span {
         display: none;
       }
     }
   `;
 
   let mobile_css = `
-    #${id} {
+    #${st_id} {
       bottom: 0;
       display: ${show_mobile ? 'flex' : 'none'};
       left: 0;
@@ -258,17 +274,17 @@ function loader(config = {}) {
       top: auto;
       width: 100%;
     }
-    #${id}.st-hidden {
+    #${st_id}.st-hidden {
       bottom: -${st.px(size)};
       width: 100%;
     }
-    #${id}.st-hidden.st-left {
+    #${st_id}.st-hidden.st-left {
       left: 0;
     }
-    #${id}.st-hidden.st-right {
+    #${st_id}.st-hidden.st-right {
       right: 0;
     }
-    #${id} > div {
+    #${st_id} > div {
       -moz-flex: 1;
       -ms-flex: 1;
       -webkit-flex: 1;
@@ -276,21 +292,21 @@ function loader(config = {}) {
       flex: 1;
       float: none;
     }
-    #${id} .st-total {
+    #${st_id} .st-total {
       background: #fff;
       padding: 6px 8px;
     }
-    #${id} .st-btn {
+    #${st_id} .st-btn {
       -moz-border-radius: ${st.px(radius)};
       -webkit-border-radius: ${st.px(radius)};
       border-radius: ${st.px(radius)};
       text-align: center;
       width: auto;
     }
-    #${id} .st-btn > span {
+    #${st_id} .st-btn > span {
       display: none;
     }
-    #${id} .st-toggle {
+    #${st_id} .st-toggle {
       display: none;
     }
   `;
@@ -305,7 +321,7 @@ function loader(config = {}) {
     for (let i = 0; i < networks.length; i++) {
       let network = networks[i];
       results.push(`
-        #${id} .st-btn[data-network='${network}'] {
+        #${st_id} .st-btn[data-network='${network}'] {
         background-color: ${COLORS[network]};
       }`);
     }
@@ -404,6 +420,36 @@ function loader(config = {}) {
         url: url || $el.getAttribute('data-url'),
         username: $el.getAttribute('data-username')
       });
+    });
+  }
+
+  // load counts
+  if (show_total || labels === 'counts') {
+    st.loadCounts({
+      'url': url || $el.getAttribute('data-url')
+    }, (counts) => {
+      if (show_total) {
+        if (counts['total'] > min_count) {
+          $total_label.innerHTML = st.formatNumber(counts['total']) || '';
+          st.removeClass($total, 'st-hidden');
+        } else {
+          st.addClass($total, 'st-hidden');
+        }
+      }
+
+      if (labels === 'counts') {
+        $buttons.forEach(($button) => {
+          let network = $button.getAttribute('data-network');
+          let value = counts['shares'][network] || 0;
+          let label = st.formatNumber(value);
+          if (label && value > min_count) {
+            $button.querySelector('.st-label').innerHTML = label;
+            st.removeClass($button, 'st-hide-label');
+          } else {
+            st.addClass($button, 'st-hide-label');
+          }
+        });
+      }
     });
   }
 

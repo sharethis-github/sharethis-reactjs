@@ -5,7 +5,7 @@ import StickyShareButtons from '../src/components/StickyShareButtons';
 class App extends React.Component {
 
   render () {
-    const url = 'www.sharethis.com';
+    const url = 'https://www.sharethis.com';
 
     const inlineConfig = {
       alignment: 'center',
@@ -13,7 +13,7 @@ class App extends React.Component {
       labels: 'cta',
       language: 'en',
       id: 1,
-      networks: ['whatsapp', 'linkedin', 'youtube', 'facebook', 'twitter'],
+      networks: ['whatsapp', 'linkedin', 'messenger', 'facebook', 'twitter'],
       padding: 12,
       radius: 4,
       show_total: true,
@@ -25,12 +25,13 @@ class App extends React.Component {
       alignment: 'left',
       hide_desktop: false,
       id: 2,
-      labels: 'cta',
+      labels: 'counts',
       langauge: 'en',
       min_count: 10,
       networks: ['linkedin', 'facebook', 'twitter', 'pinterest', 'email'],
       padding: 12,
       radius: 4,
+      show_total: true,
       show_mobile: true,
       show_toggle: true,
       size: 48,

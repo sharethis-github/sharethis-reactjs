@@ -10,7 +10,6 @@ const COLORS = require("../static/COLORS.js");
 const i18n = require("../static/i18n.js");
 
 function loader(config = {}) {
-  let st = new ShareThis();
 
   let {
     alignment,
@@ -18,9 +17,11 @@ function loader(config = {}) {
     fade_in,
     font_size,
     id,
+    st_id,
     image,
     labels,
     language,
+    min_count,
     networks,
     padding,
     radius,
@@ -36,12 +37,14 @@ function loader(config = {}) {
   font_size = font_size || 12;
   labels = labels || 'cta';
   language = language || 'en';
+  min_count = min_count || 0;
   padding = padding || 10;
   radius = radius || 4;
   size = size || 40;
   spacing = spacing || 8;
 
-  const $el = document.getElementById(id);
+  let st = new ShareThis(id);
+  const $el = document.getElementById(st_id);
 
   // update class names
   st.addClass($el, [
@@ -53,7 +56,7 @@ function loader(config = {}) {
 
   // append styling to dom
   let common_css = `
-    #${id} {
+    #${st_id} {
       ${st.font_family};
       direction: ltr;
       display: block;
@@ -61,13 +64,13 @@ function loader(config = {}) {
       text-align: ${alignment};
       z-index: 94034;
     }
-    #${id}.st-animated {
+    #${st_id}.st-animated {
       ${st.transition('opacity')}
     }
-    #${id}.st-hidden {
+    #${st_id}.st-hidden {
       opacity: ${fade_in ? 0 : 1};
     }
-    #${id} .st-btn {
+    #${st_id} .st-btn {
       ${st.transition(['opacity', 'top'])}
       border-radius: ${st.px(radius)};
       box-sizing: border-box;
@@ -88,24 +91,24 @@ function loader(config = {}) {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
     }
-    #${id} .st-btn:last-child {
+    #${st_id} .st-btn:last-child {
       margin-right: 0;
     }
-    #${id} .st-btn > svg {
+    #${st_id} .st-btn > svg {
       height: ${st.px(size / 2)};
       width: ${st.px(size / 2)};
       position: relative;
       top: ${st.px(size / 4)};
       vertical-align: top;
     }
-    #${id} .st-btn > img {
+    #${st_id} .st-btn > img {
       height: ${st.px(size / 2)};
       width: ${st.px(size / 2)};
       position: relative;
       top: ${st.px(size / 4)};
       vertical-align: top;
     }
-    #${id} .st-btn > span {
+    #${st_id} .st-btn > span {
       ${st.transition()}
       color: #fff;
       display: inline-block;
@@ -117,19 +120,19 @@ function loader(config = {}) {
       position: relative;
       vertical-align: top;
     }
-    #${id}.st-has-labels .st-btn {
+    #${st_id}.st-has-labels .st-btn {
       min-width: ${st.px(60 + Math.floor(size * 15 / 8))};
     }
-    #${id}.st-has-labels .st-btn.st-remove-label {
+    #${st_id}.st-has-labels .st-btn.st-remove-label {
       min-width: 50px;
     }
-    #${id}.st-has-labels .st-btn.st-remove-label > span {
+    #${st_id}.st-has-labels .st-btn.st-remove-label > span {
       display: none;
     }
-    #${id}.st-has-labels .st-btn.st-hide-label > span {
+    #${st_id}.st-has-labels .st-btn.st-hide-label > span {
       display: none;
     }
-    #${id} .st-total {
+    #${st_id} .st-total {
       color: #555;
       display: inline-block;
       font-weight: 500;
@@ -139,38 +142,38 @@ function loader(config = {}) {
       padding: 4px 8px;
       text-align: center;
     }
-    #${id} .st-total.st-hidden {
+    #${st_id} .st-total.st-hidden {
       display: none;
     }
-    #${id} .st-total > span {
+    #${st_id} .st-total > span {
       font-size: ${st.px(.5 * size)};
       line-height: ${st.px(.55 * size)};
       display: block;
       padding: 0;
     }
-    #${id} .st-total > span.st-shares {
+    #${st_id} .st-total > span.st-shares {
       font-size: ${st.px(.3 * size)};
       line-height: ${st.px(.3 * size)};
     }
     B
-    #${id}.st-justified {
+    #${st_id}.st-justified {
       display: flex;
       text-align: center;
     }
-    #${id}.st-justified .st-btn {
+    #${st_id}.st-justified .st-btn {
       ${st.flex}
     }
   `;
 
   let hover_css = `
-    #${id} .st-btn:hover {
+    #${st_id} .st-btn:hover {
       opacity: .8;
       top: -4px;
     }
   `;
 
   let mobile_css = `
-    #${id} {
+    #${st_id} {
       bottom: 0;
   `;
 
@@ -180,7 +183,7 @@ function loader(config = {}) {
     for (let i = 0; i < networks.length; i++) {
       let network = networks[i];
       results.push(`
-        #${id} .st-btn[data-network='${network}'] {
+        #${st_id} .st-btn[data-network='${network}'] {
         background-color: ${COLORS[network]};
       }`);
     }
@@ -253,6 +256,36 @@ function loader(config = {}) {
         url: url || $el.getAttribute('data-url'),
         username: $el.getAttribute('data-username')
       });
+    });
+  }
+
+  // load counts
+  if (show_total || labels === 'counts') {
+    st.loadCounts({
+      'url': url || $el.getAttribute('data-url')
+    }, (counts) => {
+      if (show_total) {
+        if (counts['total'] > min_count) {
+          $total_label.innerHTML = st.formatNumber(counts['total']) || '';
+          st.removeClass($total, 'st-hidden');
+        } else {
+          st.addClass($total, 'st-hidden');
+        }
+      }
+
+      if (labels === 'counts') {
+        $buttons.forEach(($button) => {
+          let network = $button.getAttribute('data-network');
+          let value = counts['shares'][network] || 0;
+          let label = st.formatNumber(value);
+          if (label && value > min_count) {
+            $button.querySelector('.st-label').innerHTML = label;
+            st.removeClass($button, 'st-hide-label');
+          } else {
+            st.addClass($button, 'st-hide-label');
+          }
+        });
+      }
     });
   }
 

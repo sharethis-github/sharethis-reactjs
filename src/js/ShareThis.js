@@ -8,8 +8,10 @@ const i18n = require("./static/i18n.js");
 
 class ShareThis {
 
-  constructor() {
+  constructor(id = 0) {
+    this.id = id;
     this.protocol = document.location.protocol === 'https:' ? 'https' : 'http';
+    this.href = 'https://www.sharethis.com';
     this.mobile = false;
     this.font_family = `
       font-family: \"Helvetica Neue\", Verdana, Helvetica, Arial, sans-serif;
@@ -20,6 +22,7 @@ class ShareThis {
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
     `;
+    this.counts = [];
   }
 
   capitalize(str) {
@@ -254,6 +257,53 @@ class ShareThis {
     return $el["on" + event] = callback;
   };
 
+  setHostname(url=this.href) {
+    let a = document.createElement('a');
+    a.setAttribute('href', url);
+    return a.hostname;
+  };
+
+  installProtocol(url) {
+    if (!(/^https?:\/\//.test(url))) {
+      return `${this.protocol}://${url}`;
+    }
+    return url;
+  };
+
+  loadPixel(url) {
+    let $el = document.createElement('script');
+    $el.async = 1;
+    $el.src = url;
+    let first = document.getElementsByTagName('script')[0];
+    first.parentNode.insertBefore($el, first);
+  };
+
+  formatNumber(value) {
+    if (value > 1000000) {
+      return (Math.round(10 * (value / 1000000)) / 10) + "m";
+    }
+    if (value > 1000) {
+      return (Math.round(10 * (value / 1000)) / 10) + "k";
+    }
+    return "" + value;
+  };
+
+  loadCounts(options={}, next) {
+    if (!options || !options.url) {
+      return 0;
+    }
+    let url = this.installProtocol(options.url);
+    let id = `st_cb_${this.id}`;
+    window[id] = next;
+
+    url = `https://count-server.sharethis.com/v2.0/get_counts?` + this.qs({
+      cb: `window.${id}`,
+      url: url,
+      refDomain: this.setHostname(document.referrer)
+    });
+    this.loadPixel(url);
+  }
+
   share(config) {
     let {
       count_url, email_subject, share_url, url,
@@ -262,12 +312,10 @@ class ShareThis {
 
     count_url = count_url || url || href;
     share_url = share_url || url || href;
-    url = (typeof url === "undefined") ? count_url : url;
-    description = (typeof description === "undefined") ? getDescription() : description;
-    image = (typeof image === "undefined") ? getImage() : image;
-    title = (typeof title === "undefined") ? getTitle() : title;
-  
-    // st.incLocalStorageShares(network, count_url);
+    url = !!url ? url : count_url;
+    description = !!description ? description: this.getDescription();
+    image = !!image ? image : this.getImage();
+    title = !!title ? title : this.getTitle();
   
     this.send((this.protocol + "://l.sharethis.com/log?") + this.qs({
       destinations: network,
@@ -295,12 +343,6 @@ class ShareThis {
     });
   
     if (network === 'wechat') {
-      // if (mobile) {
-        // return load('share-wechat-mobile', {
-          // url: share_url
-        // });
-      // }
-
       let wechat = "https://chart.apis.google.com/chart?" + this.qs({
         cht: "qr",
         chs: "154x154",
