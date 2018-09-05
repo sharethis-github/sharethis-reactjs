@@ -1,6 +1,11 @@
-# sharethis-reactjs
+# sharethis-reactjs 
 
-ShareThis react plugins
+![alt text][logo]
+
+[logo]: https://s18955.pcdn.co/wp-content/uploads/2016/12/ShareThisLogo2x.png "ShareThis"
+
+ShareThis official social media share buttons for React.
+Visit www.sharethis.com for more technical support.
 
 
 ## Products
@@ -39,31 +44,31 @@ ShareThis react plugins
 
 ## Configurations
 
-| configs           | description | required or not | value                                        |
-| ----------------- | ----------- | --------------- | -------------------------------------------- |
-| id                |             | required        | int                                          |
-| url               |             | required        | string                                       |
-| title             |             |                 | string                                       |
-| image             |             |                 |                                              |
-| description       |             |                 |                                              |
-| alignment         |             |                 | string: `left, center, right`                |
-| font_size         |             |                 | int                                          |
-| min_count         |             |                 | int                                          |
-| language          |             |                 | string: `en, es, fr, it, ja, ko, pt, ru, zh` |
-| networks          |             |                 | array                                        |
-| padding           |             |                 | int                                          |
-| radius            |             |                 | int                                          |
-| show_total        |             |                 | boolean: `true, false`                       |
-| size              |             |                 |                                              |
-| spacing           |             |                 |                                              |
-| use_native_counts |             |                 | boolean: `true, false`                       |
+| configs           | Type        | Default    | Required |         description                |
+| ----------------- | ----------- | ---------- | -------- | -----------------------------------|
+| id                | Number      |  0         |  yes     |                                    |
+| url               | String      |            |  yes     |                                    |
+| title             | String      |            |  no      |                                    |
+| image             | String      |            |  no      |                                    |
+| description       | String      |            |  no      |                                    |
+| alignment         | String      |  `left`    |  no      |                                    |
+| font_size         | Number      |  12        |  no      |                                    |
+| min_count         | Number      |  0         |  no      |                                    |
+| labels            | String      | `count`    |  no      |                                    |
+| language          | String      |  `en`      |  no      |                                    |
+| networks          | Array       |            |  yes     |                                    |
+| padding           | Number      |  8         |  no      |                                    |
+| radius            | Number      |  4         |  no      |                                    |
+| show_total        | Boolean     |  `true     |  no      |                                    |
+| size              | Number      |  40        |  no      |                                    |
+| spacing           | Number      |  12        |  no      |                                    |
 
 
 ## Usage
 
 1. import dependency
     ```
-    import InlineShareButtons from 'sharethis-reactjs';
+    import {InlineShareButtons} from 'sharethis-reactjs';
     ```
 
 2. Initialize component properties
@@ -74,7 +79,7 @@ ShareThis react plugins
       labels: 'cta',
       language: 'en',
       id: 1,
-      networks: ['whatsapp', 'linkedin', 'youtube', 'facebook', 'twitter'],
+      networks: ['whatsapp', 'linkedin', 'messenger', 'facebook', 'twitter'],
       padding: 12,
       radius: 4,
       show_total: true,
@@ -97,6 +102,7 @@ ShareThis react plugins
 
 ```
  npm install
- npm build
  npm run demo
 ```
+
+  Open `localhost:5000`

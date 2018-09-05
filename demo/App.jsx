@@ -36,7 +36,6 @@ class App extends React.Component {
       size: 48,
       top: 160,
       url: url,
-      use_native_counts: true
     };
 
     return (
