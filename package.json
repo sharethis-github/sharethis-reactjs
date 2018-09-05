@@ -12,8 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/sharethis-github/sharethis-reactjs.git"
   },
-  "author": "hao@sharethis.com",
-  "license": "MIT",
+  "author": [
+    "bryant@sharethis.com",
+    "ashwin@sharethis.com",
+    "hao@sharethis.com"
+  ],
   "bugs": {
     "url": "https://github.com/sharethis-github/sharethis-reactjs/issues"
   },
