@@ -29,7 +29,8 @@ function loader(config = {}) {
     size,
     spacing,
     title,
-    url
+    url,
+    username
   } = config;
 
   // default configs
