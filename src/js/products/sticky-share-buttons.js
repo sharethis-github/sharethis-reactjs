@@ -14,7 +14,6 @@ function loader(config = {}) {
 
   let {
     alignment,
-    container,
     description,
     font_size,
     hide_desktop,
@@ -37,7 +36,6 @@ function loader(config = {}) {
     title,
     top,
     url,
-    username
   } = config;
 
   // default configs

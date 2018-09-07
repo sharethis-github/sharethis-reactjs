@@ -17,7 +17,6 @@ function loader(config = {}) {
     fade_in,
     font_size,
     id,
-    st_id,
     image,
     labels,
     language,
@@ -28,9 +27,9 @@ function loader(config = {}) {
     show_total,
     size,
     spacing,
+    st_id,
     title,
     url,
-    username
   } = config;
 
   // default configs

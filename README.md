@@ -15,6 +15,8 @@ Visit www.sharethis.com for more technical support.
 
 ## Channels
 
+  All channels in the list are supported by inline and sticky share buttons. Specify them in `networks` configuration.
+
   1. 'blogger'
   2. 'delicious'
   3. 'digg'
@@ -44,24 +46,29 @@ Visit www.sharethis.com for more technical support.
 
 ## Configurations
 
-| configs           | Type        | Default    | Required |         description                |
-| ----------------- | ----------- | ---------- | -------- | -----------------------------------|
-| id                | Number      |  0         |  yes     |                                    |
-| url               | String      |            |  yes     |                                    |
-| title             | String      |            |  no      |                                    |
-| image             | String      |            |  no      |                                    |
-| description       | String      |            |  no      |                                    |
-| alignment         | String      |  `left`    |  no      |                                    |
-| font_size         | Number      |  12        |  no      |                                    |
-| min_count         | Number      |  0         |  no      |                                    |
-| labels            | String      | `count`    |  no      |                                    |
-| language          | String      |  `en`      |  no      |                                    |
-| networks          | Array       |            |  yes     |                                    |
-| padding           | Number      |  8         |  no      |                                    |
-| radius            | Number      |  4         |  no      |                                    |
-| show_total        | Boolean     |  `true     |  no      |                                    |
-| size              | Number      |  40        |  no      |                                    |
-| spacing           | Number      |  12        |  no      |                                    |
+| configs           | Type        | Default                         | Required |         description                |
+| ----------------- | ----------- | ------------------------------- | -------- | -----------------------------------|
+| id                | Number      |  0                              |  yes     | unique id to specify your single product, you can sequentially define it with your products|
+| url               | String      |                                 |  yes     | The url you want to share for your product, otherwise the website will be crawled as default.|
+| networks          | Array       |                                 |  yes     | An array of String of social media networks, see 'Channels' for supported networks.|
+| alignment         | String      |  inline: `left`, sticky: `left` |  no      | The display position of products, `inline-share-buttons` can be specified at `left`, `center`, or `right`, `sticky-share-buttons` can be specified at `left` or `right`|
+| description       | String      |                                 |  no      |                                    |
+| font_size         | Number      |  inline: `12`, sticky: `16`     |  no      | The font size of your product network labels|
+| fade_in           | Boolean     |  inline: `false`                |  no      |                                    |
+| hide_desktop      | Boolean     |  sticky: `false`                |  no      | Hide the product in desktop        |
+| image             | String      |                                 |  no      | The image for sharing, otherwise the `<meta>` tag with image name will be crawled as default|
+| labels            | String      | inline: `cta`, sticky: `counts` |  no      | Display the name of networks with `cta` configuration, or display the counts with `counts`|
+| language          | String      |   `en`                          |  no      | Configure language of the buttons, currently supporting `en`, `es`, `fr`, `it`, `ja`, `ko`, `pt`, `ru`, `zh`|
+| mobile_breakpoint | Number      |  sticky: `0`                    |  no      | This specifies the width at which your sticky buttons will move from the side to the bottom of your users' screen|
+| min_count         | Number      |  0                              |  no      | This is the minimum number of shares a page needs to have before we'll show your share counts|
+| padding           | Number      |  inline: `10`, sticky: `12`     |  no      |                                    |
+| radius            | Number      |  inline: `4`, sticky: `0`       |  no      |                                    |
+| show_mobile       | Boolean     |                                 |  no      | Display on mobile or not           |
+| show_toggle       | Boolean     |  sticky: `true`                 |  no      | Display toggle button or not       |
+| show_total        | Boolean     |  `true`                         |  no      | Display total counts or not        |
+| size              | Number      |  inline: `40`, sticky: `48`     |  no      |                                    |
+| spacing           | Number      |  inline: `8`                    |  no      |                                    |
+| title             | String      |                                 |  no      |                                    |
 
 
 ## Usage
@@ -106,3 +113,4 @@ Visit www.sharethis.com for more technical support.
 ```
 
   Open `localhost:5000`
+  
