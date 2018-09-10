@@ -69,7 +69,7 @@ configuration = {
       chunkFilename: "[id].css"
     })
   ],
-  devServer: { 
+  devServer: {
     open: false,
     host: '0.0.0.0',
     port: 5000,
