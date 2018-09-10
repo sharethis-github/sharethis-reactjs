@@ -22,21 +22,20 @@ class InlineShareButtons extends React.Component {
       document.body.appendChild(script);
     }
 
+    // load buttons
     const _onShareThisLoaded = window.onShareThisLoaded;
-    let buttons = this.buttons;
-    window.onShareThisLoaded = function() {
+    window.onShareThisLoaded = () => {
       if (!config.id) {
         const id = 'sharethis-' + Date.now();
-        buttons.current.id = config.id = id;
+        config.id = id;
       }
-      console.log('loaded inline', config);
+      this.buttons.current.id = config.id;
       window.__sharethis__.load('inline-share-buttons', config);
       if (_onShareThisLoaded) {_onShareThisLoaded();}
     };
   }
 
   render () {
-    console.log('inline render');
     return (
       <div ref={this.buttons} />
     );

@@ -23,16 +23,13 @@ class StickyShareButtons extends React.Component {
 
     // load buttons
     const _onShareThisLoaded = window.onShareThisLoaded;
-    let buttons = this.buttons;
-    window.onShareThisLoaded = function() {
+    window.onShareThisLoaded = () => {
       if (!config.id) {
         const id = 'sharethis-' + Date.now();
-        buttons.current.id = config.id = id;
+        config.id = id;
       }
-      console.log('loaded sticky', config);
-      setTimeout(() => {
-        window.__sharethis__.load('sticky-share-buttons', config);
-      }, 1000);
+      this.buttons.current.id = config.id;
+      window.__sharethis__.load('sticky-share-buttons', config);
       if (_onShareThisLoaded) { _onShareThisLoaded(); }
     };
   }
