@@ -1,8 +1,6 @@
 
 // dependencies
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const nib = require('nib');
 const path = require('path');
 
@@ -45,10 +43,6 @@ configuration = {
             options: { minimize: true }
           }
         ]
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
       }
     ]
   },
@@ -63,10 +57,6 @@ configuration = {
     new HtmlWebPackPlugin({
       template: "./demo/index.html",
       filename: "index.html"
-    }),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
     })
   ],
   devServer: {
