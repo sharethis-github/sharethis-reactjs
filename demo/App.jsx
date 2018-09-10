@@ -4,48 +4,39 @@ import {InlineShareButtons, StickyShareButtons} from 'sharethis-reactjs';
 class App extends React.Component {
 
   render () {
-    const url = 'https://www.sharethis.com';
-
-    const inlineConfig = {
-      alignment: 'center',
-      font_size: 16,
-      labels: 'cta',
-      language: 'en',
-      id: 1,
-      networks: ['whatsapp', 'linkedin', 'messenger', 'facebook', 'twitter'],
-      padding: 12,
-      radius: 4,
-      show_total: true,
-      size: 40,
-      url: url
-    };
-
-    const stickyConfig = {
-      alignment: 'left',
-      hide_desktop: false,
-      id: 2,
-      labels: 'counts',
-      langauge: 'en',
-      min_count: 10,
-      networks: ['linkedin', 'facebook', 'twitter', 'pinterest', 'email'],
-      padding: 12,
-      radius: 4,
-      show_total: true,
-      show_mobile: true,
-      show_toggle: true,
-      size: 48,
-      top: 160,
-      url: url,
-    };
-
     return (
       <div>
-        <InlineShareButtons
-          config={inlineConfig}
-        />
-        <StickyShareButtons
-          config={stickyConfig}
-        />
+        <InlineShareButtons config={{
+          alignment: 'center',
+          enabled: true,
+          fade_in: true,
+          font_size: 16,
+          labels: 'cta',
+          language: 'en',
+          networks: ['whatsapp', 'linkedin', 'messenger', 'facebook', 'twitter'],
+          padding: 12,
+          radius: 4,
+          show_total: true,
+          size: 40,
+          url: 'https://www.sharethis.com'
+        }} />
+        <StickyShareButtons config={{
+          alignment: 'left',
+          enabled: true,
+          hide_desktop: false,
+          labels: 'counts',
+          langauge: 'en',
+          min_count: 10,
+          networks: ['linkedin', 'facebook', 'twitter', 'pinterest', 'email'],
+          padding: 12,
+          radius: 4,
+          show_total: true,
+          show_mobile: true,
+          show_toggle: true,
+          size: 48,
+          top: 160,
+          url: 'https://www.sharethis.com'
+        }} />
       </div>
     );
   }
