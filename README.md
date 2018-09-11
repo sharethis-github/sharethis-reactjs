@@ -180,12 +180,12 @@ export default App;
 
 | Network | Icon  |
 | ------- | ----- |
-| blogger | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Blogger.png)
-| delicious | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Delicious.png)
-| digg | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Digg.png)
-| email | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Email.png)
-| facebook | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Facebook.png)
-| flipboard | ![](https://s18955.pcdn.co/wp-content/uploads/2018/08/flipboard-logo.png)
+| blogger | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Blogger.png | width=48)
+| delicious | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Delicious.png | width=48)
+| digg | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Digg.png | width=48)
+| email | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Email.png | width=48)
+| facebook | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Facebook.png | width=48)
+| flipboard | ![](https://s18955.pcdn.co/wp-content/uploads/2018/08/flipboard-logo.png | width=48)
 
 | googleplus | linkedin |
 | livejournal | mailru | meneame | messenger |
