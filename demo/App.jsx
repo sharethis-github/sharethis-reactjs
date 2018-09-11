@@ -34,7 +34,7 @@ class App extends React.Component {
             font_size: 16,        // font size for the buttons
             labels: 'cta',        // button labels (cta, counts, null)
             language: 'en',       // which language to use (see LANGUAGES)
-            networks: [           // which networks to include (see NETWORKS)
+            networks: [           // which networks to include (see SHARING NETWORKS)
               'whatsapp',
               'linkedin',
               'messenger',
@@ -91,7 +91,7 @@ class App extends React.Component {
             action_pos: 'bottom', // position of call to action (left, top, right)
             alignment: 'center',  // alignment of buttons (left, center, right)
             enabled: true,        // show/hide buttons (true, false)
-            networks: [           // which networks to include (see NETWORKS)
+            networks: [           // which networks to include (see FOLLOW NETWORKS)
               'twitter',
               'facebook',
               'instagram',
@@ -120,7 +120,7 @@ class App extends React.Component {
             labels: 'counts',     // button labels (cta, counts, null)
             language: 'en',       // which language to use (see LANGUAGES)
             min_count: 0,         // hide react counts less than min_count (INTEGER)
-            networks: [           // which networks to include (see NETWORKS)
+            networks: [           // which networks to include (see SHARING NETWORKS)
               'linkedin',
               'facebook',
               'twitter',
