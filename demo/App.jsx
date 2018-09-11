@@ -45,7 +45,15 @@ class App extends React.Component {
             radius: 4,            // the corner radius on each button (INTEGER)
             show_total: true,
             size: 40,             // the size of each button (INTEGER)
-            url: 'https://www.sharethis.com' // url (OPTIONAL) (STRING) (defaults to current url)
+
+            // OPTIONAL PARAMETERS
+            url: 'https://www.sharethis.com', // (defaults to current url)
+            image: 'https://bit.ly/2CMhCMC',  // (defaults to og:image or twitter:image)
+            description: 'custom text',       // (defaults to og:description or twitter:description)
+            title: 'custom title',            // (defaults to og:title or twitter:title)
+            message: 'custom email text',     // (only for email sharing)
+            subject: 'custom email subject',  // (only for email sharing)
+            username: 'custom twitter handle' // (only for twitter sharing)
           }}
         />
         <hr />
@@ -68,7 +76,9 @@ class App extends React.Component {
             ],
             size: 48,             // the size of each button (INTEGER)
             spacing: 8,           // the spacing between buttons (INTEGER)
-            url: 'https://www.sharethis.com' // url (OPTIONAL) (STRING) (defaults to current url)
+
+            // OPTIONAL PARAMETERS
+            url: 'https://www.sharethis.com' // (defaults to current url)
           }}
         />
         <hr />
@@ -124,7 +134,16 @@ class App extends React.Component {
             show_toggle: true,    // show/hide the toggle buttons (true, false)
             size: 48,             // the size of each button (INTEGER)
             top: 160,             // offset in pixels from the top of the page
-            url: 'https://www.sharethis.com' // url (OPTIONAL) (STRING) (defaults to current url)
+
+            // OPTIONAL PARAMETERS
+            url: 'https://www.sharethis.com', // (defaults to current url)
+            image: 'https://bit.ly/2CMhCMC',  // (defaults to og:image or twitter:image)
+            description: 'custom text',       // (defaults to og:description or twitter:description)
+            title: 'custom title',            // (defaults to og:title or twitter:title)
+            message: 'custom email text',     // (only for email sharing)
+            subject: 'custom email subject',  // (only for email sharing)
+            username: 'custom twitter handle' // (only for twitter sharing)
+
           }}
         />
 
