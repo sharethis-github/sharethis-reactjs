@@ -184,14 +184,14 @@ livejournal, mailru, meneame, messenger, oknoklassniki, pinterest, print,
 reddit, sharethis, sms, stumbleupon, tumblr,  twitter, vk, wechat, weibo,
 whatsapp, xing
 ```
-![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/94764965838ac4062688d11aa616ecc2804ed269/demo/img/networks.png)
+![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/master/demo/img/networks.png)
 
 ## Available Reactions
 
 ```
 slight_smile, heart_eyes, laughing, astonished, sob, rage
 ```
-![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/94764965838ac4062688d11aa616ecc2804ed269/demo/img/reactions.png)
+![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/master/demo/img/reactions.png)
 
 
 ## Demo
