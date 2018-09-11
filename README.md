@@ -10,100 +10,189 @@ Visit www.sharethis.com for more technical support.
 
 ## Products
 
-- inline-share-buttons
-- sticky-share-buttons
+ - Inline Share Buttons
+ - Sticky Share Buttons
+ - Inline Reaction Buttons
+ - Inline Follow Buttons
 
-## Channels
+## How to use the buttons
 
-  All channels in the list are supported by inline and sticky share buttons. Specify them in `networks` configuration.
+```Javascript
+import React from "react";
+import {InlineReactionButtons} from 'sharethis-reactjs';
+import {InlineShareButtons} from 'sharethis-reactjs';
+import {StickyShareButtons} from 'sharethis-reactjs';
+import {InlineFollowButtons} from 'sharethis-reactjs';
 
-  1. 'blogger'
-  2. 'delicious'
-  3. 'digg'
-  4. 'email'
-  5. 'facebook'
-  6. 'flipboard'
-  7. 'googleplus'
-  8. 'linkedin'
-  9. 'livejournal'
-  10. 'mailru'
-  11. 'meneame'
-  12. 'messenger'
-  13. 'odnoklassniki'
-  14. 'pinterest'
-  15. 'print'
-  16. 'reddit'
-  17. 'sharethis'
-  18. 'sms'
-  19. 'stumbleupon'
-  20. 'tumblr'
-  21. 'twitter'
-  22. 'vk'
-  23. 'wechat'
-  24. 'weibo'
-  25. 'whatsapp'
-  26. 'xing'
+class App extends React.Component {
 
-## Configurations
+  render () {
+    return (
+      <div>
+        <style dangerouslySetInnerHTML={{__html: `
+          html, body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+          }
+          h1 {
+            font-size: 24px;
+            font-weight: bold;
+          }
+          hr {
+            margin-bottom: 40px;
+            margin-top: 40px;
+            width: 50%;
+          }
+        `}} />
 
-| configs           | Type        | Default                         | Required |         description                |
-| ----------------- | ----------- | ------------------------------- | -------- | -----------------------------------|
-| id                | Number      |  0                              |  yes     | unique id to specify your single product, you can sequentially define it with your products|
-| url               | String      |                                 |  yes     | The url you want to share for your product, otherwise the website will be crawled as default.|
-| networks          | Array       |                                 |  yes     | An array of String of social media networks, see 'Channels' for supported networks.|
-| alignment         | String      |  inline: `left`, sticky: `left` |  no      | The display position of products, `inline-share-buttons` can be specified at `left`, `center`, or `right`, `sticky-share-buttons` can be specified at `left` or `right`|
-| description       | String      |                                 |  no      |                                    |
-| font_size         | Number      |  inline: `12`, sticky: `16`     |  no      | The font size of your product network labels|
-| fade_in           | Boolean     |  inline: `false`                |  no      |                                    |
-| hide_desktop      | Boolean     |  sticky: `false`                |  no      | Hide the product in desktop        |
-| image             | String      |                                 |  no      | The image for sharing, otherwise the `<meta>` tag with image name will be crawled as default|
-| labels            | String      | inline: `cta`, sticky: `counts` |  no      | Display the name of networks with `cta` configuration, or display the counts with `counts`|
-| language          | String      |   `en`                          |  no      | Configure language of the buttons, currently supporting `en`, `es`, `fr`, `it`, `ja`, `ko`, `pt`, `ru`, `zh`|
-| mobile_breakpoint | Number      |  sticky: `0`                    |  no      | This specifies the width at which your sticky buttons will move from the side to the bottom of your users' screen|
-| min_count         | Number      |  0                              |  no      | This is the minimum number of shares a page needs to have before we'll show your share counts|
-| padding           | Number      |  inline: `10`, sticky: `12`     |  no      |                                    |
-| radius            | Number      |  inline: `4`, sticky: `0`       |  no      |                                    |
-| show_mobile       | Boolean     |                                 |  no      | Display on mobile or not           |
-| show_toggle       | Boolean     |  sticky: `true`                 |  no      | Display toggle button or not       |
-| show_total        | Boolean     |  `true`                         |  no      | Display total counts or not        |
-| size              | Number      |  inline: `40`, sticky: `48`     |  no      |                                    |
-| spacing           | Number      |  inline: `8`                    |  no      |                                    |
-| title             | String      |                                 |  no      |                                    |
+        <h1>Inline Share Buttons</h1>
+        <InlineShareButtons
+          config={{
+            alignment: 'center',  // alignment of buttons (left, center, right)
+            enabled: true,        // show/hide buttons (true, false)
+            font_size: 16,        // font size for the buttons
+            labels: 'cta',        // button labels (cta, counts, null)
+            language: 'en',       // which language to use (see LANGUAGES)
+            networks: [           // which networks to include (see NETWORKS)
+              'whatsapp',
+              'linkedin',
+              'messenger',
+              'facebook',
+              'twitter'
+            ],
+            padding: 12,          // padding within buttons (INTEGER)
+            radius: 4,            // the corner radius on each button (INTEGER)
+            show_total: true,
+            size: 40,             // the size of each button (INTEGER)
 
+            // OPTIONAL PARAMETERS
+            url: 'https://www.sharethis.com', // (defaults to current url)
+            image: 'https://bit.ly/2CMhCMC',  // (defaults to og:image or twitter:image)
+            description: 'custom text',       // (defaults to og:description or twitter:description)
+            title: 'custom title',            // (defaults to og:title or twitter:title)
+            message: 'custom email text',     // (only for email sharing)
+            subject: 'custom email subject',  // (only for email sharing)
+            username: 'custom twitter handle' // (only for twitter sharing)
+          }}
+        />
+        <hr />
 
-## Usage
+        <h1>Inline Reaction Buttons</h1>
+        <InlineReactionButtons
+          config={{
+            alignment: 'center',  // alignment of buttons (left, center, right)
+            enabled: true,        // show/hide buttons (true, false)
+            language: 'en',       // which language to use (see LANGUAGES)
+            min_count: 0,         // hide react counts less than min_count (INTEGER)
+            padding: 12,          // padding within buttons (INTEGER)
+            reactions: [          // which reactions to include (see REACTIONS)
+              'slight_smile',
+              'heart_eyes',
+              'laughing',
+              'astonished',
+              'sob',
+              'rage'
+            ],
+            size: 48,             // the size of each button (INTEGER)
+            spacing: 8,           // the spacing between buttons (INTEGER)
 
-1. import dependency
-    ```
-    import {InlineShareButtons} from 'sharethis-reactjs';
-    ```
+            // OPTIONAL PARAMETERS
+            url: 'https://www.sharethis.com' // (defaults to current url)
+          }}
+        />
+        <hr />
 
-2. Initialize component properties
-    ```
-    const inlineShareButtonsConfig = {
-      alignment: 'center',
-      font_size: 16,
-      labels: 'cta',
-      language: 'en',
-      id: 1,
-      networks: ['whatsapp', 'linkedin', 'messenger', 'facebook', 'twitter'],
-      padding: 12,
-      radius: 4,
-      show_total: true,
-      size: 40,
-      url: 'www.sharethis.com'
-    };
-    ```
+        <h1>Inline Follow Buttons</h1>
+        <InlineFollowButtons
+          config={{
+            action: 'Follow us:', // call to action (STRING)
+            action_enable: true,  // show/hide call to action (true, false)
+            action_pos: 'bottom', // position of call to action (left, top, right)
+            alignment: 'center',  // alignment of buttons (left, center, right)
+            enabled: true,        // show/hide buttons (true, false)
+            networks: [           // which networks to include (see NETWORKS)
+              'twitter',
+              'facebook',
+              'instagram',
+              'youtube'
+            ],
+            padding: 8,           // padding within buttons (INTEGER)
+            profiles: {           // social profile links for buttons
+              twitter: 'sharethis',
+              facebook: 'sharethis',
+              instagram: 'sharethis',
+              youtube: '/channel/UCbM93niCmdc2RD9RZbLMP6A?view_as=subscriber'
+            },
+            radius: 9,            // the corner radius on each button (INTEGER)
+            size: 32,             // the size of each button (INTEGER)
+            spacing: 8            // the spacing between buttons (INTEGER)
+          }}
+        />
+        <hr />
 
-3. Render button component
-    ```
-    <div>
-      <InlineShareButtons
-        config={inlineShareButtonsConfig}
-      />
-    </div>
-        
-    ```
+        <StickyShareButtons
+          config={{
+            alignment: 'left',    // alignment of buttons (left, right)
+            enabled: true,        // show/hide buttons (true, false)
+            font_size: 16,        // font size for the buttons
+            hide_desktop: false,  // hide buttons on desktop (true, false)
+            labels: 'counts',     // button labels (cta, counts, null)
+            language: 'en',       // which language to use (see LANGUAGES)
+            min_count: 0,         // hide react counts less than min_count (INTEGER)
+            networks: [           // which networks to include (see NETWORKS)
+              'linkedin',
+              'facebook',
+              'twitter',
+              'pinterest',
+              'email'
+            ],
+            padding: 12,          // padding within buttons (INTEGER)
+            radius: 4,            // the corner radius on each button (INTEGER)
+            show_total: true,     // show/hide the total share count (true, false)
+            show_mobile: true,    // show/hide the buttons on mobile (true, false)
+            show_toggle: true,    // show/hide the toggle buttons (true, false)
+            size: 48,             // the size of each button (INTEGER)
+            top: 160,             // offset in pixels from the top of the page
+
+            // OPTIONAL PARAMETERS
+            url: 'https://www.sharethis.com', // (defaults to current url)
+            image: 'https://bit.ly/2CMhCMC',  // (defaults to og:image or twitter:image)
+            description: 'custom text',       // (defaults to og:description or twitter:description)
+            title: 'custom title',            // (defaults to og:title or twitter:title)
+            message: 'custom email text',     // (only for email sharing)
+            subject: 'custom email subject',  // (only for email sharing)
+            username: 'custom twitter handle' // (only for twitter sharing)
+
+          }}
+        />
+
+      </div>
+    );
+  }
+};
+
+// export
+export default App;
+```
+
+## Available Networks
+
+```
+blogger, delicious, digg, email, facebook, flipboard, google, linkedin,
+livejournal, mailru, meneame, messenger, oknoklassniki, pinterest, print,
+reddit, sharethis, sms, stumbleupon, tumblr,  twitter, vk, wechat, weibo,
+whatsapp, xing
+```
+![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/94764965838ac4062688d11aa616ecc2804ed269/demo/img/networks.png)
+
+## Available Reactions
+
+```
+slight_smile, heart_eyes, laughing, astonished, sob, rage
+```
+![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/94764965838ac4062688d11aa616ecc2804ed269/demo/img/reactions.png)
+
 
 ## Demo
 
