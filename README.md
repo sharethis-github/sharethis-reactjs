@@ -178,11 +178,15 @@ export default App;
 
 ## Available Networks
 
-| blogger | delicious | digg | email | facebook | flipboard |
-| googleplus | linkedin | livejournal | mailru | meneame | messenger |
-| odnoklassniki | pinterest | print | reddit | sharethis | sms |
-| stumbleopon | tumblr | twitter | vk | wechat | weibo |
-| whatsapp | xing | | | | |
+| Network | Icon  | Network | Icon |
+| ------- | ----- | ------- | ---- |
+| blogger | delicious | digg | email |
+| facebook | flipboard | googleplus | linkedin |
+| livejournal | mailru | meneame | messenger |
+| odnoklassniki | pinterest | print | reddit |
+| sharethis | sms | stumbleopon | tumblr |
+| twitter | vk | wechat | weibo |
+| whatsapp | xing | | |
 
 ## Available Reactions
 
