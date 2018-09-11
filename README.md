@@ -7,6 +7,10 @@
 ShareThis official social media share buttons for React.
 Visit www.sharethis.com for more technical support.
 
+## Demo
+
+[View the live demo here](https://sharethis-github.github.io/sharethis-reactjs/)
+
 
 ## Products
 
