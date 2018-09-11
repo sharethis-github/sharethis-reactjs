@@ -1,26 +1,37 @@
 {
   "name": "sharethis-reactjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "sharethis reactjs plugins",
   "main": "webpack.config.js",
+  "author": "ShareThis <support@sharethis.com> (https://sharethis.com)",
+  "bugs": {
+    "url": "https://github.com/sharethis-github/sharethis-reactjs/issues"
+  },
+  "contributors": [
+    "Bryant Williams <bryant@sharethis.com>",
+    "Hao Xu <hao@sharethis.com>",
+    "Ashwin Kundar <ashwin@sharethis.com>"
+  ],
+  "homepage": "https://github.com/sharethis-github/sharethis-reactjs#readme",
+  "license": "UPL-1.0",
+  "keywords": [
+    "react.js",
+    "ShareThis",
+    "share buttons",
+    "sharing buttons",
+    "follow buttons",
+    "reaction buttons",
+    "social"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharethis-github/sharethis-reactjs.git"
+  },
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js --mode production",
     "demo": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development --history-api-fallback",
     "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sharethis-github/sharethis-reactjs.git"
-  },
-  "author": [
-    "bryant@sharethis.com",
-    "ashwin@sharethis.com",
-    "hao@sharethis.com"
-  ],
-  "bugs": {
-    "url": "https://github.com/sharethis-github/sharethis-reactjs/issues"
-  },
-  "homepage": "https://github.com/sharethis-github/sharethis-reactjs#readme",
   "devDependencies": {
     "html-loader": "0.5.5",
     "nib": "1.1.2",
