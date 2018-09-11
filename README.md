@@ -15,6 +15,12 @@ Visit www.sharethis.com for more technical support.
  - Inline Reaction Buttons
  - Inline Follow Buttons
 
+## Installation
+
+```bash
+npm install --save sharethis-reactjs
+```
+
 ## How to use the buttons
 
 ```Javascript
