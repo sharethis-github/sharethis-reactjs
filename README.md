@@ -178,26 +178,21 @@ export default App;
 
 ## Available Networks
 
-| Network | Icon  |
-| ------- | ----- |
-| blogger | <img src="https://s18955.pcdn.co/wp-content/uploads/2017/05/Blogger.png" width="48" /> |
-| delicious | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Delicious.png | width=48)
-| digg | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Digg.png | width=48)
-| email | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Email.png | width=48)
-| facebook | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Facebook.png | width=48)
-| flipboard | ![](https://s18955.pcdn.co/wp-content/uploads/2018/08/flipboard-logo.png | width=48)
-
-| googleplus | linkedin |
-| livejournal | mailru | meneame | messenger |
-| odnoklassniki | pinterest | print | reddit |
-| sharethis | sms | stumbleopon | tumblr |
-| twitter | vk | wechat | weibo |
-| whatsapp | xing | | |
+```
+blogger, delicious, digg, email, facebook, flipboard, google, linkedin,
+livejournal, mailru, meneame, messenger, oknoklassniki, pinterest, print,
+reddit, sharethis, sms, stumbleupon, tumblr,  twitter, vk, wechat, weibo,
+whatsapp, xing
+```
+![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/94764965838ac4062688d11aa616ecc2804ed269/demo/img/networks.png)
 
 ## Available Reactions
 
-| slight_smile | heart_eyes | laughing |
-| astonished | sob | rage |
+```
+slight_smile, heart_eyes, laughing, astonished, sob, rage
+```
+![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/94764965838ac4062688d11aa616ecc2804ed269/demo/img/reactions.png)
+
 
 ## Demo
 
