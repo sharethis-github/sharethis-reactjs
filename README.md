@@ -182,9 +182,10 @@ export default App;
 | googleplus | linkedin | livejournal | mailru | meneame | messenger |
 | odnoklassniki | pinterest | print | reddit | sharethis | sms |
 | stumbleopon | tumblr | twitter | vk | wechat | weibo |
-| whatsapp | xing |
+| whatsapp | xing | | | | |
 
 ## Available Reactions
+
 | slight_smile | heart_eyes | laughing |
 | astonished | sob | rage |
 
