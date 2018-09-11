@@ -16,7 +16,8 @@ class StickyShareButtons extends React.Component {
     if (!document.getElementById('sharethis-js')) {
       const script = document.createElement("script");
       script.setAttribute('id', 'sharethis-js');
-      script.src = "https://platform-api.sharethis.com/js/sharethis.js";
+      script.src = "https://platform-api.sharethis.com/js/sharethis.js" +
+        "?product=sticky-share-buttons&source=reactjs";
       script.async = true;
       document.body.appendChild(script);
     }
