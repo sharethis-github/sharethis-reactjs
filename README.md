@@ -178,10 +178,16 @@ export default App;
 
 ## Available Networks
 
-| Network | Icon  | Network | Icon |
-| ------- | ----- | ------- | ---- |
-| blogger | delicious | digg | email |
-| facebook | flipboard | googleplus | linkedin |
+| Network | Icon  |
+| ------- | ----- |
+| blogger | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/blogger_32.png) |
+| delicious | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/delicious.png)
+| digg | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/digg.png)
+| email | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/email.png)
+| facebook | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/facebook.png)
+| flipboard | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/flipboard.png)
+
+| googleplus | linkedin |
 | livejournal | mailru | meneame | messenger |
 | odnoklassniki | pinterest | print | reddit |
 | sharethis | sms | stumbleopon | tumblr |
