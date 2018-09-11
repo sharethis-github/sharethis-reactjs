@@ -180,7 +180,7 @@ export default App;
 
 | Network | Icon  |
 | ------- | ----- |
-| blogger | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Blogger.png | width=48)
+| blogger | <img src="https://s18955.pcdn.co/wp-content/uploads/2017/05/Blogger.png" width="48" /> |
 | delicious | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Delicious.png | width=48)
 | digg | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Digg.png | width=48)
 | email | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Email.png | width=48)
