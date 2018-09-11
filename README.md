@@ -196,7 +196,7 @@ livejournal, mailru, meneame, messenger, oknoklassniki, pinterest, print,
 reddit, sharethis, sms, stumbleupon, tumblr,  twitter, vk, wechat, weibo,
 whatsapp, xing
 ```
-![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/master/demo/img/networks.png)
+![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/master/demo/img/sharing-networks.png)
 
 ---
 
@@ -208,6 +208,7 @@ messenger, linkedin, oknoklassniki, patreon, pinterest, quora, reddit,
 snapchat, soundcloudm, spotify, telegram, tumblr, twitch, twitter, vk, wechat,
 weibo, yelp, youtube
 ```
+![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/master/demo/img/follow-networks.png)
 
 ---
 
