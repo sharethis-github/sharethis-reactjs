@@ -176,6 +176,8 @@ class App extends React.Component {
 export default App;
 ```
 
+---
+
 ## Available Networks
 
 ```
@@ -186,6 +188,8 @@ whatsapp, xing
 ```
 ![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/master/demo/img/networks.png)
 
+---
+
 ## Available Reactions
 
 ```
@@ -193,6 +197,7 @@ slight_smile, heart_eyes, laughing, astonished, sob, rage
 ```
 ![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/master/demo/img/reactions.png)
 
+---
 
 ## Demo
 
