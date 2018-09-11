@@ -188,7 +188,7 @@ export default App;
 
 ---
 
-## Available Sharing Networks
+## Sharing Networks
 
 ```
 blogger, delicious, digg, email, facebook, flipboard, google, linkedin,
@@ -200,7 +200,7 @@ whatsapp, xing
 
 ---
 
-## Available Follow Networks
+## Follow Networks
 
 ```
 blogger, digg, facebook, flipboard, googleplus, github, instagram, medium,
@@ -208,12 +208,10 @@ messenger, linkedin, oknoklassniki, patreon, pinterest, quora, reddit,
 snapchat, soundcloudm, spotify, telegram, tumblr, twitch, twitter, vk, wechat,
 weibo, yelp, youtube
 ```
-![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/master/demo/img/networks.png)
 
--
 ---
 
-## Available Reactions
+## Reactions
 
 ```
 slight_smile, heart_eyes, laughing, astonished, sob, rage
