@@ -180,12 +180,12 @@ export default App;
 
 | Network | Icon  |
 | ------- | ----- |
-| blogger | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/blogger_32.png) |
-| delicious | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/delicious.png)
-| digg | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/digg.png)
-| email | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/email.png)
-| facebook | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/facebook.png)
-| flipboard | ![](https://s3.amazonaws.com/sharethis-socialab-prod/ie8buttons/flipboard.png)
+| blogger | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Blogger.png)
+| delicious | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Delicious.png)
+| digg | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Digg.png)
+| email | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Email.png)
+| facebook | ![](https://s18955.pcdn.co/wp-content/uploads/2017/05/Facebook.png)
+| flipboard | ![](https://s18955.pcdn.co/wp-content/uploads/2018/08/flipboard-logo.png)
 
 | googleplus | linkedin |
 | livejournal | mailru | meneame | messenger |
