@@ -28,7 +28,7 @@
     "url": "git+https://github.com/sharethis-github/sharethis-reactjs.git"
   },
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js --mode production --config webpack.prod.config.js",
+    "build": "babel src/index.js > dist/index.js",
     "demo": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development --config webpack.dev.config.js",
     "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },

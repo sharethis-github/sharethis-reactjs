@@ -1,1 +1,249 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.r=function(e){Object.defineProperty(e,"__esModule",{value:!0})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=8)}([function(e,t){e.exports=React},function(e,t){e.exports=ReactDOM},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),o=function(e){return e&&e.__esModule?e:{default:e}}(n(0));var i=function(e){function t(e){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t);var n=function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.buttons=o.default.createRef(),n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,o.default.Component),r(t,[{key:"componentDidMount",value:function(){var e=this,t=JSON.parse(JSON.stringify(this.props.config));if(!document.getElementById("sharethis-js")){var n=document.createElement("script");n.setAttribute("id","sharethis-js"),n.src="https://platform-api.sharethis.com/js/sharethis.js?product=sticky-share-buttons&source=reactjs",n.async=!0,document.body.appendChild(n)}var r=window.onShareThisLoaded;window.onShareThisLoaded=function(){if(!t.id){var n="sharethis-"+Date.now();t.id=n}e.buttons.current.id=t.id,window.__sharethis__.load("sticky-share-buttons",t),r&&r()}}},{key:"render",value:function(){return o.default.createElement("div",{ref:this.buttons})}}]),t}();t.default=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),o=function(e){return e&&e.__esModule?e:{default:e}}(n(0));var i=function(e){function t(e){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t);var n=function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.buttons=o.default.createRef(),n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,o.default.Component),r(t,[{key:"componentDidMount",value:function(){var e=this,t=JSON.parse(JSON.stringify(this.props.config));if(!document.getElementById("sharethis-js")){var n=document.createElement("script");n.setAttribute("id","sharethis-js"),n.src="https://platform-api.sharethis.com/js/sharethis.js?product=inline-share-buttons&source=reactjs",n.async=!0,document.body.appendChild(n)}var r=window.onShareThisLoaded;window.onShareThisLoaded=function(){if(!t.id){var n="sharethis-"+Date.now();t.id=n}e.buttons.current.id=t.id,window.__sharethis__.load("inline-share-buttons",t),r&&r()}}},{key:"render",value:function(){return o.default.createElement("div",{ref:this.buttons})}}]),t}();t.default=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),o=function(e){return e&&e.__esModule?e:{default:e}}(n(0));var i=function(e){function t(e){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t);var n=function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.buttons=o.default.createRef(),n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,o.default.Component),r(t,[{key:"componentDidMount",value:function(){var e=this,t=JSON.parse(JSON.stringify(this.props.config));if(!document.getElementById("sharethis-js")){var n=document.createElement("script");n.setAttribute("id","sharethis-js"),n.src="https://platform-api.sharethis.com/js/sharethis.js?product=inline-reaction-buttons&source=reactjs",n.async=!0,document.body.appendChild(n)}var r=window.onShareThisLoaded;window.onShareThisLoaded=function(){if(!t.id){var n="sharethis-"+Date.now();t.id=n}e.buttons.current.id=t.id,window.__sharethis__.load("inline-reaction-buttons",t),r&&r()}}},{key:"render",value:function(){return o.default.createElement("div",{ref:this.buttons})}}]),t}();t.default=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),o=function(e){return e&&e.__esModule?e:{default:e}}(n(0));var i=function(e){function t(e){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t);var n=function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.buttons=o.default.createRef(),n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,o.default.Component),r(t,[{key:"componentDidMount",value:function(){var e=this,t=JSON.parse(JSON.stringify(this.props.config));if(!document.getElementById("sharethis-js")){var n=document.createElement("script");n.setAttribute("id","sharethis-js"),n.src="https://platform-api.sharethis.com/js/sharethis.js?product=inline-follow-buttons&source=reactjs",n.async=!0,document.body.appendChild(n)}var r=window.onShareThisLoaded;window.onShareThisLoaded=function(){if(!t.id){var n="sharethis-"+Date.now();t.id=n}e.buttons.current.id=t.id,window.__sharethis__.load("inline-follow-buttons",t),r&&r()}}},{key:"render",value:function(){return o.default.createElement("div",{ref:this.buttons})}}]),t}();t.default=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(5);Object.defineProperty(t,"InlineFollowButtons",{enumerable:!0,get:function(){return u(r).default}});var o=n(4);Object.defineProperty(t,"InlineReactionButtons",{enumerable:!0,get:function(){return u(o).default}});var i=n(3);Object.defineProperty(t,"InlineShareButtons",{enumerable:!0,get:function(){return u(i).default}});var a=n(2);function u(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"StickyShareButtons",{enumerable:!0,get:function(){return u(a).default}})},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),o=function(e){return e&&e.__esModule?e:{default:e}}(n(0)),i=n(6);var a=function(e){function t(){return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,o.default.Component),r(t,[{key:"render",value:function(){return o.default.createElement("div",null,o.default.createElement("style",{dangerouslySetInnerHTML:{__html:"\n          html, body {\n            margin: 0;\n            padding: 0;\n            text-align: center;\n          }\n          h1 {\n            font-size: 24px;\n            font-weight: bold;\n          }\n          hr {\n            margin-bottom: 40px;\n            margin-top: 40px;\n            width: 50%;\n          }\n        "}}),o.default.createElement("h1",null,"Inline Share Buttons"),o.default.createElement(i.InlineShareButtons,{config:{alignment:"center",enabled:!0,font_size:16,labels:"cta",language:"en",networks:["whatsapp","linkedin","messenger","facebook","twitter"],padding:12,radius:4,show_total:!0,size:40,url:"https://www.sharethis.com",image:"https://bit.ly/2CMhCMC",description:"custom text",title:"custom title",message:"custom email text",subject:"custom email subject",username:"custom twitter handle"}}),o.default.createElement("hr",null),o.default.createElement("h1",null,"Inline Reaction Buttons"),o.default.createElement(i.InlineReactionButtons,{config:{alignment:"center",enabled:!0,language:"en",min_count:0,padding:12,reactions:["slight_smile","heart_eyes","laughing","astonished","sob","rage"],size:48,spacing:8,url:"https://www.sharethis.com"}}),o.default.createElement("hr",null),o.default.createElement("h1",null,"Inline Follow Buttons"),o.default.createElement(i.InlineFollowButtons,{config:{action:"Follow us:",action_enable:!0,action_pos:"bottom",alignment:"center",enabled:!0,networks:["twitter","facebook","instagram","youtube"],padding:8,profiles:{twitter:"sharethis",facebook:"sharethis",instagram:"sharethis",youtube:"/channel/UCbM93niCmdc2RD9RZbLMP6A?view_as=subscriber"},radius:9,size:32,spacing:8}}),o.default.createElement("hr",null),o.default.createElement(i.StickyShareButtons,{config:{alignment:"left",enabled:!0,font_size:16,hide_desktop:!1,labels:"counts",language:"en",min_count:0,networks:["linkedin","facebook","twitter","pinterest","email"],padding:12,radius:4,show_total:!0,show_mobile:!0,show_toggle:!0,size:48,top:160,url:"https://www.sharethis.com",image:"https://bit.ly/2CMhCMC",description:"custom text",title:"custom title",message:"custom email text",subject:"custom email subject",username:"custom twitter handle"}}))}}]),t}();t.default=a},function(e,t,n){"use strict";var r=a(n(7)),o=a(n(0)),i=a(n(1));function a(e){return e&&e.__esModule?e:{default:e}}var u=document.getElementById("app");i.default.render(o.default.createElement(r.default,null),u)}]);
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StickyShareButtons = exports.InlineShareButtons = exports.InlineReactionButtons = exports.InlineFollowButtons = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// dependencies
+
+
+var InlineFollowButtons = function (_React$Component) {
+  _inherits(InlineFollowButtons, _React$Component);
+
+  function InlineFollowButtons(props) {
+    _classCallCheck(this, InlineFollowButtons);
+
+    var _this = _possibleConstructorReturn(this, (InlineFollowButtons.__proto__ || Object.getPrototypeOf(InlineFollowButtons)).call(this, props));
+
+    _this.buttons = _react2.default.createRef();
+    return _this;
+  }
+
+  _createClass(InlineFollowButtons, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      // load config
+      var config = JSON.parse(JSON.stringify(this.props.config));
+
+      // load sharethis.js
+      if (!document.getElementById('sharethis-js')) {
+        var script = document.createElement("script");
+        script.setAttribute('id', 'sharethis-js');
+        script.src = "https://platform-api.sharethis.com/js/sharethis.js" + "?product=inline-follow-buttons&source=reactjs";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+
+      // load buttons
+      var _onShareThisLoaded = window.onShareThisLoaded;
+      window.onShareThisLoaded = function () {
+        if (!config.id) {
+          var id = 'sharethis-' + Date.now();
+          config.id = id;
+        }
+        _this2.buttons.current.id = config.id;
+        window.__sharethis__.load('inline-follow-buttons', config);
+        if (_onShareThisLoaded) {
+          _onShareThisLoaded();
+        }
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement("div", { ref: this.buttons });
+    }
+  }]);
+
+  return InlineFollowButtons;
+}(_react2.default.Component);
+
+;
+
+var InlineShareButtons = function (_React$Component2) {
+  _inherits(InlineShareButtons, _React$Component2);
+
+  function InlineShareButtons(props) {
+    _classCallCheck(this, InlineShareButtons);
+
+    var _this3 = _possibleConstructorReturn(this, (InlineShareButtons.__proto__ || Object.getPrototypeOf(InlineShareButtons)).call(this, props));
+
+    _this3.buttons = _react2.default.createRef();
+    return _this3;
+  }
+
+  _createClass(InlineShareButtons, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this4 = this;
+
+      // load config
+      var config = JSON.parse(JSON.stringify(this.props.config));
+
+      // load sharethis.js
+      if (!document.getElementById('sharethis-js')) {
+        var script = document.createElement("script");
+        script.setAttribute('id', 'sharethis-js');
+        script.src = "https://platform-api.sharethis.com/js/sharethis.js" + "?product=inline-share-buttons&source=reactjs";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+
+      // load buttons
+      var _onShareThisLoaded = window.onShareThisLoaded;
+      window.onShareThisLoaded = function () {
+        if (!config.id) {
+          var id = 'sharethis-' + Date.now();
+          config.id = id;
+        }
+        _this4.buttons.current.id = config.id;
+        window.__sharethis__.load('inline-share-buttons', config);
+        if (_onShareThisLoaded) {
+          _onShareThisLoaded();
+        }
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement("div", { ref: this.buttons });
+    }
+  }]);
+
+  return InlineShareButtons;
+}(_react2.default.Component);
+
+;
+
+var InlineReactionButtons = function (_React$Component3) {
+  _inherits(InlineReactionButtons, _React$Component3);
+
+  function InlineReactionButtons(props) {
+    _classCallCheck(this, InlineReactionButtons);
+
+    var _this5 = _possibleConstructorReturn(this, (InlineReactionButtons.__proto__ || Object.getPrototypeOf(InlineReactionButtons)).call(this, props));
+
+    _this5.buttons = _react2.default.createRef();
+    return _this5;
+  }
+
+  _createClass(InlineReactionButtons, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this6 = this;
+
+      // load config
+      var config = JSON.parse(JSON.stringify(this.props.config));
+
+      // load sharethis.js
+      if (!document.getElementById('sharethis-js')) {
+        var script = document.createElement("script");
+        script.setAttribute('id', 'sharethis-js');
+        script.src = "https://platform-api.sharethis.com/js/sharethis.js" + "?product=inline-reaction-buttons&source=reactjs";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+
+      // load buttons
+      var _onShareThisLoaded = window.onShareThisLoaded;
+      window.onShareThisLoaded = function () {
+        if (!config.id) {
+          var id = 'sharethis-' + Date.now();
+          config.id = id;
+        }
+        _this6.buttons.current.id = config.id;
+        window.__sharethis__.load('inline-reaction-buttons', config);
+        if (_onShareThisLoaded) {
+          _onShareThisLoaded();
+        }
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement("div", { ref: this.buttons });
+    }
+  }]);
+
+  return InlineReactionButtons;
+}(_react2.default.Component);
+
+;
+
+var StickyShareButtons = function (_React$Component4) {
+  _inherits(StickyShareButtons, _React$Component4);
+
+  function StickyShareButtons(props) {
+    _classCallCheck(this, StickyShareButtons);
+
+    var _this7 = _possibleConstructorReturn(this, (StickyShareButtons.__proto__ || Object.getPrototypeOf(StickyShareButtons)).call(this, props));
+
+    _this7.buttons = _react2.default.createRef();
+    return _this7;
+  }
+
+  _createClass(StickyShareButtons, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this8 = this;
+
+      // load config
+      var config = JSON.parse(JSON.stringify(this.props.config));
+
+      // load sharethis.js
+      if (!document.getElementById('sharethis-js')) {
+        var script = document.createElement("script");
+        script.setAttribute('id', 'sharethis-js');
+        script.src = "https://platform-api.sharethis.com/js/sharethis.js" + "?product=sticky-share-buttons&source=reactjs";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+
+      // load buttons
+      var _onShareThisLoaded = window.onShareThisLoaded;
+      window.onShareThisLoaded = function () {
+        if (!config.id) {
+          var id = 'sharethis-' + Date.now();
+          config.id = id;
+        }
+        _this8.buttons.current.id = config.id;
+        window.__sharethis__.load('sticky-share-buttons', config);
+        if (_onShareThisLoaded) {
+          _onShareThisLoaded();
+        }
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement("div", { ref: this.buttons });
+    }
+  }]);
+
+  return StickyShareButtons;
+}(_react2.default.Component);
+
+;
+
+// export
+exports.InlineFollowButtons = InlineFollowButtons;
+exports.InlineReactionButtons = InlineReactionButtons;
+exports.InlineShareButtons = InlineShareButtons;
+exports.StickyShareButtons = StickyShareButtons;
+
