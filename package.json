@@ -2,7 +2,7 @@
   "name": "sharethis-reactjs",
   "version": "1.0.2",
   "description": "sharethis reactjs plugins",
-  "main": "webpack.config.js",
+  "main": "dist/index.js",
   "author": "ShareThis <support@sharethis.com> (https://sharethis.com)",
   "bugs": {
     "url": "https://github.com/sharethis-github/sharethis-reactjs/issues"
@@ -34,18 +34,10 @@
   },
   "devDependencies": {
     "html-loader": "0.5.5",
-    "nib": "1.1.2",
     "babel-core": "6.26.2",
-    "babel-eslint": "8.2.1",
     "babel-loader": "7.1.4",
-    "babel-plugin-jsx-control-statements": "3.2.8",
     "babel-preset-env": "1.6.1",
     "babel-preset-react": "6.24.1",
-    "css-loader": "0.28.11",
-    "eslint": "4.1.0",
-    "eslint-loader": "2.0.0",
-    "eslint-plugin-jest": "21.7.0",
-    "eslint-plugin-react": "7.11.1",
     "html-webpack-plugin": "3.2.0",
     "react": "16.3.2",
     "react-dom": "16.3.2",

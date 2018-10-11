@@ -1,20 +1,13 @@
 
 // dependencies
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const nib = require('nib');
 const path = require('path');
 
 // configuration
-configuration = {
+var configuration = {
   entry: './demo/index.js',
   module: {
     rules: [
-      {
-        test: /\.jsx?$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        exclude: /node_modules/
-      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -23,20 +16,8 @@ configuration = {
         }
       },
       {
-        test: /\.styl/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'stylus-loader',
-            options: {
-              use: [nib()]
-            }
-          }
-        ]
-      },
-      {
         test: /\.html$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: "html-loader",
