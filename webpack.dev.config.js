@@ -28,7 +28,7 @@ var configuration = {
     ]
   },
   output: {
-    publicPath: '/'
+    publicPath: '',
   },
   resolve: {
     alias: {'sharethis-reactjs': path.resolve('./src')},
