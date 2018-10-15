@@ -2,6 +2,41 @@
 // dependencies
 import React from "react";
 
+// load project wrapper
+const load = function(component, product) {
+
+  // load config
+  let config = JSON.parse(JSON.stringify(component.props.config));
+
+  // load buttons
+  const _onShareThisLoaded = window.onShareThisLoaded;
+  window.onShareThisLoaded = () => {
+    if (!config.id) {
+      const id = 'sharethis-' + Date.now();
+      config.id = id;
+    }
+    component.buttons.current.id = config.id;
+    window.__sharethis__.load(product, config);
+    if (_onShareThisLoaded) {_onShareThisLoaded();}
+  };
+
+  // load sharethis.js
+  if (document.getElementById('sharethis-js')) {
+    if (window.__sharethis__) {
+      window.onShareThisLoaded();
+    }
+  }
+  else {
+    const script = document.createElement("script");
+    script.setAttribute('id', 'sharethis-js');
+    script.src = "https://platform-api.sharethis.com/js/sharethis.js" +
+      "?product=" + product + "&source=reactjs";
+    script.async = true;
+    document.body.appendChild(script);
+  }
+}
+
+// inline follow buttons
 class InlineFollowButtons extends React.Component {
   constructor(props) {
     super(props);
@@ -9,31 +44,7 @@ class InlineFollowButtons extends React.Component {
   }
 
   componentDidMount() {
-
-    // load config
-    let config = JSON.parse(JSON.stringify(this.props.config));
-
-    // load sharethis.js
-    if (!document.getElementById('sharethis-js')) {
-      const script = document.createElement("script");
-      script.setAttribute('id', 'sharethis-js');
-      script.src = "https://platform-api.sharethis.com/js/sharethis.js" +
-        "?product=inline-follow-buttons&source=reactjs";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
-    // load buttons
-    const _onShareThisLoaded = window.onShareThisLoaded;
-    window.onShareThisLoaded = () => {
-      if (!config.id) {
-        const id = 'sharethis-' + Date.now();
-        config.id = id;
-      }
-      this.buttons.current.id = config.id;
-      window.__sharethis__.load('inline-follow-buttons', config);
-      if (_onShareThisLoaded) {_onShareThisLoaded();}
-    };
+    load(this, 'inline-follow-buttons');
   }
 
   render () {
@@ -50,31 +61,7 @@ class InlineShareButtons extends React.Component {
   }
 
   componentDidMount() {
-
-    // load config
-    let config = JSON.parse(JSON.stringify(this.props.config));
-
-    // load sharethis.js
-    if (!document.getElementById('sharethis-js')) {
-      const script = document.createElement("script");
-      script.setAttribute('id', 'sharethis-js');
-      script.src = "https://platform-api.sharethis.com/js/sharethis.js" +
-        "?product=inline-share-buttons&source=reactjs";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
-    // load buttons
-    const _onShareThisLoaded = window.onShareThisLoaded;
-    window.onShareThisLoaded = () => {
-      if (!config.id) {
-        const id = 'sharethis-' + Date.now();
-        config.id = id;
-      }
-      this.buttons.current.id = config.id;
-      window.__sharethis__.load('inline-share-buttons', config);
-      if (_onShareThisLoaded) {_onShareThisLoaded();}
-    };
+    load(this, 'inline-share-buttons');
   }
 
   render () {
@@ -91,31 +78,7 @@ class InlineReactionButtons extends React.Component {
   }
 
   componentDidMount() {
-
-    // load config
-    let config = JSON.parse(JSON.stringify(this.props.config));
-
-    // load sharethis.js
-    if (!document.getElementById('sharethis-js')) {
-      const script = document.createElement("script");
-      script.setAttribute('id', 'sharethis-js');
-      script.src = "https://platform-api.sharethis.com/js/sharethis.js" +
-        "?product=inline-reaction-buttons&source=reactjs";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
-    // load buttons
-    const _onShareThisLoaded = window.onShareThisLoaded;
-    window.onShareThisLoaded = () => {
-      if (!config.id) {
-        const id = 'sharethis-' + Date.now();
-        config.id = id;
-      }
-      this.buttons.current.id = config.id;
-      window.__sharethis__.load('inline-reaction-buttons', config);
-      if (_onShareThisLoaded) {_onShareThisLoaded();}
-    };
+    load(this, 'inline-reaction-buttons');
   }
 
   render () {
@@ -132,31 +95,7 @@ class StickyShareButtons extends React.Component {
   }
 
   componentDidMount() {
-
-    // load config
-    let config = JSON.parse(JSON.stringify(this.props.config));
-
-    // load sharethis.js
-    if (!document.getElementById('sharethis-js')) {
-      const script = document.createElement("script");
-      script.setAttribute('id', 'sharethis-js');
-      script.src = "https://platform-api.sharethis.com/js/sharethis.js" +
-        "?product=sticky-share-buttons&source=reactjs";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
-    // load buttons
-    const _onShareThisLoaded = window.onShareThisLoaded;
-    window.onShareThisLoaded = () => {
-      if (!config.id) {
-        const id = 'sharethis-' + Date.now();
-        config.id = id;
-      }
-      this.buttons.current.id = config.id;
-      window.__sharethis__.load('sticky-share-buttons', config);
-      if (_onShareThisLoaded) { _onShareThisLoaded(); }
-    };
+    load(this, 'sticky-share-buttons');
   }
 
   render () {
