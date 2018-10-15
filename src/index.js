@@ -10,23 +10,28 @@ const load = function(component, product) {
 
   // load buttons
   const _onShareThisLoaded = window.onShareThisLoaded;
-  window.onShareThisLoaded = () => {
-    if (!config.id) {
-      const id = 'sharethis-' + Date.now();
-      config.id = id;
+  let onload = () => {
+    if (!onload.complete) {
+      if (!config.id) {
+        const id = 'sharethis-' + Date.now();
+        config.id = id;
+      }
+      component.buttons.current.id = config.id;
+      window.__sharethis__.load(product, config);
+      if (_onShareThisLoaded) {
+        _onShareThisLoaded();
+      }
+      onload.complete = true;
     }
-    component.buttons.current.id = config.id;
-    window.__sharethis__.load(product, config);
-    if (_onShareThisLoaded) {_onShareThisLoaded();}
   };
+  window.onShareThisLoaded = onload;
 
   // load sharethis.js
   if (document.getElementById('sharethis-js')) {
     if (window.__sharethis__) {
       window.onShareThisLoaded();
     }
-  }
-  else {
+  } else {
     const script = document.createElement("script");
     script.setAttribute('id', 'sharethis-js');
     script.src = "https://platform-api.sharethis.com/js/sharethis.js" +
