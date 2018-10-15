@@ -1,6 +1,6 @@
 {
   "name": "sharethis-reactjs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "sharethis reactjs plugins",
   "main": "dist/index.js",
   "author": "ShareThis <support@sharethis.com> (https://sharethis.com)",
@@ -33,11 +33,13 @@
     "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
   "devDependencies": {
-    "html-loader": "0.5.5",
-    "babel-core": "7.1.0",
+    "@babel/core": "7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "8.0.4",
     "babel-preset-env": "1.6.1",
     "babel-preset-react": "6.24.1",
+    "html-loader": "0.5.5",
     "html-webpack-plugin": "3.2.0",
     "react": "16.3.2",
     "react-dom": "16.3.2",
