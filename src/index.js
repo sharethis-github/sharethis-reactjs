@@ -16,8 +16,10 @@ const load = function(component, product) {
         const id = 'sharethis-' + Date.now();
         config.id = id;
       }
-      component.buttons.current.id = config.id;
-      window.__sharethis__.load(product, config);
+      if (component.buttons.current) {
+        component.buttons.current.id = config.id;
+        window.__sharethis__.load(product, config);
+      }
       if (_onShareThisLoaded) {
         _onShareThisLoaded();
       }

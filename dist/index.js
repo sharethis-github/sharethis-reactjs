@@ -41,9 +41,11 @@ var load = function load(component, product) {
         config.id = id;
       }
 
-      component.buttons.current.id = config.id;
+      if (component.buttons.current) {
+        component.buttons.current.id = config.id;
 
-      window.__sharethis__.load(product, config);
+        window.__sharethis__.load(product, config);
+      }
 
       if (_onShareThisLoaded) {
         _onShareThisLoaded();
