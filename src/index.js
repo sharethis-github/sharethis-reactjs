@@ -6,7 +6,8 @@ import React from "react";
 const load = function(component, product) {
 
   // load config
-  let config = JSON.parse(JSON.stringify(component.props.config));
+  let config = component.props.config || {enabled: true};
+  config = JSON.parse(JSON.stringify(config));
 
   // load buttons
   const _onShareThisLoaded = window.onShareThisLoaded;
