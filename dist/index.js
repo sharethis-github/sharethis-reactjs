@@ -30,7 +30,10 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 // load project wrapper
 var load = function load(component, product) {
   // load config
-  var config = JSON.parse(JSON.stringify(component.props.config)); // load buttons
+  var config = component.props.config || {
+    enabled: true
+  };
+  config = JSON.parse(JSON.stringify(config)); // load buttons
 
   var _onShareThisLoaded = window.onShareThisLoaded;
 
