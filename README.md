@@ -60,6 +60,7 @@ class App extends React.Component {
         <InlineShareButtons
           config={{
             alignment: 'center',  // alignment of buttons (left, center, right)
+            color: 'social',      // set the color of buttons (social, white)
             enabled: true,        // show/hide buttons (true, false)
             font_size: 16,        // font size for the buttons
             labels: 'cta',        // button labels (cta, counts, null)
@@ -120,6 +121,7 @@ class App extends React.Component {
             action_enable: true,  // show/hide call to action (true, false)
             action_pos: 'bottom', // position of call to action (left, top, right)
             alignment: 'center',  // alignment of buttons (left, center, right)
+            color: 'white',       // set the color of buttons (social, white)
             enabled: true,        // show/hide buttons (true, false)
             networks: [           // which networks to include (see FOLLOW NETWORKS)
               'twitter',
@@ -144,6 +146,7 @@ class App extends React.Component {
         <StickyShareButtons
           config={{
             alignment: 'left',    // alignment of buttons (left, right)
+            color: 'social',      // set the color of buttons (social, white)
             enabled: true,        // show/hide buttons (true, false)
             font_size: 16,        // font size for the buttons
             hide_desktop: false,  // hide buttons on desktop (true, false)
