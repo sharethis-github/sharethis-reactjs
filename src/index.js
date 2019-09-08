@@ -37,8 +37,13 @@ const load = function(component, product) {
   } else {
     const script = document.createElement("script");
     script.setAttribute('id', 'sharethis-js');
-    script.src = "https://platform-api.sharethis.com/js/sharethis.js" +
-      "?product=" + product + "&source=reactjs";
+    const params = {
+      property: config.property || '',
+      product: product,
+      source: 'reactjs'
+    }
+    const query = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+    script.src = "https://platform-api.sharethis.com/js/sharethis.js?" + query;
     script.async = true;
     document.body.appendChild(script);
   }
