@@ -67,7 +67,15 @@ var load = function load(component, product) {
   } else {
     var script = document.createElement("script");
     script.setAttribute('id', 'sharethis-js');
-    script.src = "https://platform-api.sharethis.com/js/sharethis.js" + "?product=" + product + "&source=reactjs";
+    var params = {
+      property: config.property || '',
+      product: product,
+      source: 'reactjs'
+    };
+    var query = Object.keys(params).map(function (key) {
+      return key + '=' + params[key];
+    }).join('&');
+    script.src = "https://platform-api.sharethis.com/js/sharethis.js?" + query;
     script.async = true;
     document.body.appendChild(script);
   }
