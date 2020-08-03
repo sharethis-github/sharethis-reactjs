@@ -194,7 +194,7 @@ export default App;
 ## Sharing Networks
 
 ```
-blogger, delicious, digg, email, facebook, flipboard, google, linkedin,
+blogger, delicious, digg, email, facebook, flipboard, linkedin,
 livejournal, mailru, meneame, messenger, oknoklassniki, pinterest, print,
 reddit, sharethis, sms, stumbleupon, tumblr,  twitter, vk, wechat, weibo,
 whatsapp, xing
@@ -206,7 +206,7 @@ whatsapp, xing
 ## Follow Networks
 
 ```
-blogger, digg, facebook, flipboard, googleplus, github, instagram, medium,
+blogger, digg, facebook, flipboard, github, instagram, medium,
 messenger, linkedin, oknoklassniki, patreon, pinterest, quora, reddit,
 snapchat, soundcloudm, spotify, telegram, tumblr, twitch, twitter, vk, wechat,
 weibo, yelp, youtube
