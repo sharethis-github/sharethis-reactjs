@@ -196,7 +196,7 @@ export default App;
 ```
 blogger, delicious, digg, email, facebook, flipboard, linkedin,
 livejournal, mailru, meneame, messenger, oknoklassniki, pinterest, print,
-reddit, sharethis, sms, stumbleupon, tumblr,  twitter, vk, wechat, weibo,
+reddit, sharethis, sms, stumbleupon, telegram, tumblr, twitter, vk, wechat, weibo,
 whatsapp, xing
 ```
 ![](https://raw.githubusercontent.com/sharethis-github/sharethis-reactjs/master/demo/img/sharing-networks.png)
