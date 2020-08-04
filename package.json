@@ -1,6 +1,6 @@
 {
   "name": "sharethis-reactjs",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "sharethis reactjs plugins",
   "main": "dist/index.js",
   "author": "ShareThis <support@sharethis.com> (https://sharethis.com)",
