@@ -46,8 +46,10 @@
     "html-webpack-plugin": "3.2.0",
     "react": "16.3.2",
     "react-dom": "16.3.3",
+    "typescript": "^2.7.2",
     "webpack": "4.6.0",
     "webpack-cli": "2.0.15",
     "webpack-dev-server": "3.1.14"
-  }
+  },
+  "types": "./src/index.d.ts"
 }

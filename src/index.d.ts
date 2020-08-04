@@ -120,7 +120,7 @@ declare module "sharethis-reactjs" {
     show_total: boolean;
     /** the size of each button */
     size: number;
-  }
+  };
 
   type InlineFollowButtonsConfig = {
     /** call to action */
@@ -194,8 +194,8 @@ declare module "sharethis-reactjs" {
     username?: string;
   };
 
-  function InlineShareButtons({ config }: { config: InlineShareButtonsConfig });
-  function InlineFollowButtons({ config }: { config: InlineFollowButtonsConfig });
-  function InlineReactionButtons({ config }: { config: InlineReactionButtonsConfig });
-  function StickyShareButtons({ config }: { config: StickyShareButtonsConfig});
+  function InlineShareButtons({ config }: { config: InlineShareButtonsConfig }): void;
+  function InlineFollowButtons({ config }: { config: InlineFollowButtonsConfig }): void;
+  function InlineReactionButtons({ config }: { config: InlineReactionButtonsConfig }): void;
+  function StickyShareButtons({ config }: { config: StickyShareButtonsConfig}): void;
 }
