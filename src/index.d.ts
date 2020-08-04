@@ -140,14 +140,14 @@ declare module "sharethis-reactjs" {
     /** padding within buttons */
     padding: number;
     /** social profile links for buttons */
-    profiles: {[key: string]: string;};
+    profiles: {[key in FollowNetwork]: string;};
     /** the corner radius on each button */
     radius: number;
     /** the size of each button */
     size: number;
   };
 
-  type InlineShareButtonsConfig = {
+  type StickyShareButtonsConfig = {
     /** alignment of buttons */
     alignment: "center" | "left" | "right";
     /** set the color of buttons */
