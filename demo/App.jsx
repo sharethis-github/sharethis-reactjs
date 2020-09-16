@@ -166,7 +166,7 @@ class App extends React.Component {
               'facebook',
               ['twitter', {       // network with options
                 icon: {           // options applied to the icon
-                  src: 'https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-4.png',
+                  src: 'https://pbs.twimg.com/profile_images/531381005165158401/bUJYaSO9_400x400.png',
                   style: {
                     objectFit: 'contain'
                   }
