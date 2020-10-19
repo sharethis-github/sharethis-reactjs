@@ -1,5 +1,5 @@
 declare module "sharethis-reactjs" {
-  type SharingNetwork =
+  type Network =
     | "blogger"
     | "delicious"
     | "digg"
@@ -27,7 +27,10 @@ declare module "sharethis-reactjs" {
     | "whatsapp"
     | "xing";
 
-  type FollowNetwork = 
+  type SharingNetwork =
+    | Network | [Network, object]
+
+  type FollowNetwork =
     | "blogger"
     | "digg"
     | "facebook"
@@ -55,7 +58,7 @@ declare module "sharethis-reactjs" {
     | "yelp"
     | "youtube";
 
-  type Reaction = 
+  type Reaction =
     | "slight_smile"
     | "heart_eyes"
     | "laughing"
