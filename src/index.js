@@ -1,11 +1,11 @@
 // dependencies
 import React from 'react';
 
-const normalizeNetworks = (networks) => {
+const normalizeNetworks = networks => {
   const options = [];
   const normalizedNetworks = [];
 
-  networks.forEach((network) => {
+  networks.forEach(network => {
     if (typeof network === 'string') {
       normalizedNetworks.push(network);
       options.push(undefined);
@@ -21,28 +21,28 @@ const normalizeNetworks = (networks) => {
   return [normalizedNetworks, options];
 };
 
-const getStyleString = (style) =>
+const getStyleString = style =>
   Object.entries(style)
     .map(
       ([k, v]) =>
-        `${k.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`)}:${v}`
+        `${k.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`)}:${v}`
     )
     .join(';');
 
 const applyAttributes = (element, attributes) => {
-  Object.keys(attributes).forEach((key) => {
+  Object.keys(attributes).forEach(key => {
     if (key === 'style') {
       element[key] = getStyleString(attributes[key]);
-      return
+      return;
     }
 
     if (key === 'className') {
-      element['class'] = attributes[key]
+      element['class'] = attributes[key];
     }
 
     element[key] = attributes[key];
   });
-}
+};
 
 const applyOptions = (elements, options) => {
   elements.forEach((element, index) => {
@@ -58,19 +58,31 @@ const applyOptions = (elements, options) => {
         );
 
         if (option.icon) {
-          applyAttributes(image, option.icon)
+          applyAttributes(image, option.icon);
         }
 
         if (option.text) {
-          applyAttributes(text, option.text)
+          applyAttributes(text, option.text);
         }
 
         if (option.container) {
-          applyAttributes(element, option.container)
+          applyAttributes(element, option.container);
         }
       }
     }
   });
+};
+
+const applyIconOptions = (elements, options) => {
+  elements
+    .filter(element => options[element.dataset.network])
+    .forEach((element, index) => {
+      const image = document.querySelector(
+        `[data-network="${element.dataset.network}"] > img`
+      );
+
+      applyAttributes(image, options[element.dataset.network]);
+    });
 };
 
 // load project wrapper
@@ -101,8 +113,12 @@ const load = function(component, product) {
 
         const networks = [
           ...document.querySelectorAll(`#${config.id} > [data-network]`),
-        ].filter((el) => el.dataset.network);
+        ].filter(el => el.dataset.network);
         applyOptions(networks, networkOptions);
+
+        if (config.icons) {
+          applyIconOptions(networks, config.icons);
+        }
       }
       if (_onShareThisLoaded) {
         _onShareThisLoaded();
@@ -126,7 +142,7 @@ const load = function(component, product) {
       source: 'reactjs',
     };
     const query = Object.keys(params)
-      .map((key) => key + '=' + params[key])
+      .map(key => key + '=' + params[key])
       .join('&');
     script.src = 'https://platform-api.sharethis.com/js/sharethis.js?' + query;
     script.async = true;

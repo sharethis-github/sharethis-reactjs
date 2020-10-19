@@ -161,16 +161,18 @@ class App extends React.Component {
             labels: 'counts',     // button labels (cta, counts, null)
             language: 'en',       // which language to use (see LANGUAGES)
             min_count: 0,         // hide react counts less than min_count (INTEGER)
-            networks: [           // which networks to include (see SHARING NETWORKS)
-              'linkedin',         // network without options
-              'facebook',
-              ['twitter', {       // network with options
-                icon: {           // options applied to the icon
+            icons: {
+              twitter: {          // options applied to the icon
                   src: 'https://pbs.twimg.com/profile_images/531381005165158401/bUJYaSO9_400x400.png',
                   style: {
                     objectFit: 'contain'
                   }
-                },
+                }
+            },
+            networks: [           // which networks to include (see SHARING NETWORKS)
+              'linkedin',         // network without options
+              'facebook',
+              ['twitter', {       // network with options
                 text: {           // options applied to the span of the text
                   style: {
                     color: 'black'
