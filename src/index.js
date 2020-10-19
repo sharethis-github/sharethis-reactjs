@@ -116,8 +116,8 @@ const load = function(component, product) {
         ].filter(el => el.dataset.network);
         applyOptions(networks, networkOptions);
 
-        if (config.icons) {
-          applyIconOptions(networks, config.icons);
+        if (component.props.icons) {
+          applyIconOptions(networks, component.props.icons);
         }
       }
       if (_onShareThisLoaded) {
